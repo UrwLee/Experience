@@ -1,0 +1,14 @@
+src/caffe/util/im_transforms.cpp: In function ‘void caffe::add_sun_process(cv::Mat&, int, cv::Size, cv::Point, int, float*, float*, float, float)’:
+src/caffe/util/im_transforms.cpp:904:9: warning: unused variable ‘num_times’ [-Wunused-variable]
+     int num_times = (int)(radius / 2.f);
+         ^
+src/caffe/util/im_transforms.cpp:905:11: warning: unused variable ‘alpha’ [-Wunused-variable]
+     float alpha = 0.f;
+           ^
+src/caffe/util/im_transforms.cpp:906:9: warning: unused variable ‘rad’ [-Wunused-variable]
+     int rad = 0;
+         ^
+src/caffe/util/im_transforms.cpp: In function ‘void caffe::add_sun_flare_line(cv::Point, double, cv::Size, float*, float*)’:
+src/caffe/util/im_transforms.cpp:927:9: warning: unused variable ‘num’ [-Wunused-variable]
+     int num = 0;
+         ^

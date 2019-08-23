@@ -1,0 +1,14 @@
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:336:9: warning: ‘w_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         crop_bbox->x1_ = 0.5-w_max/2.0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:344:7: warning: ‘h_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       crop_bbox->y1_ = 0.5-h_max/2.0;
+       ^
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:336:9: warning: ‘w_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         crop_bbox->x1_ = 0.5-w_max/2.0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:344:7: warning: ‘h_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       crop_bbox->y1_ = 0.5-h_max/2.0;
+       ^

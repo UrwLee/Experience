@@ -1,0 +1,14 @@
+tools/hp_multi_images.cpp: In function ‘void test_face(caffe::SmileNetWrapper, cv::Mat&, cv::Mat&, std::vector<caffe::BoundingBox<float> >&, bool, bool&, int&)’:
+tools/hp_multi_images.cpp:277:11: warning: unused variable ‘score’ [-Wunused-variable]
+     float score;
+           ^
+tools/hp_multi_images.cpp: In function ‘int main(int, char**)’:
+tools/hp_multi_images.cpp:502:8: warning: unused variable ‘show_face’ [-Wunused-variable]
+   bool show_face = true;
+        ^
+tools/hp_multi_images.cpp:504:8: warning: unused variable ‘show_body’ [-Wunused-variable]
+   bool show_body = false;
+        ^
+tools/hp_multi_images.cpp:1008:8: warning: variable ‘flag_smile’ set but not used [-Wunused-but-set-variable]
+   bool flag_smile=false;
+        ^

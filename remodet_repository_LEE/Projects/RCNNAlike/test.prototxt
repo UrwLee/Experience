@@ -1,0 +1,103 @@
+name: "DetNet_DarkNet20180519FromPose_TrunkBD_PDHeadHand_DataMinS0.75MaxS2.0NoExp_HisiDataOnlySmpBody_WD5e-3_1A_train"
+input:"convf"
+input_shape {
+dim:1
+dim:128
+dim:36
+dim:64
+}
+input:"rois"
+input_shape{
+dim:1
+dim:5
+}
+ layer {
+  name: "roi_pooling3"
+  type: "ROIPooling"
+  bottom: "convf"
+  bottom: "rois"
+  top: "roi_pooling3"
+  roi_pooling_param {
+    pooled_w: 5
+    pooled_h: 5
+    spatial_scale: 0.125 # 1/8
+  }
+}
+
+
+layer {
+  name: "recls_fc1"
+  type: "InnerProduct"
+  bottom: "roi_pooling3"
+  top: "recls_fc1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 256
+     weight_filler {
+          type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "recls_fc1_relu"
+  type: "ReLU"
+  bottom: "recls_fc1"
+  top: "recls_fc1"
+}
+layer {
+  name: "recls_fc1_drop"
+  type: "Dropout"
+  bottom: "recls_fc1"
+  top: "recls_fc1"
+  dropout_param {
+    dropout_ratio: 0.95
+  }
+}
+layer {
+  name: "recls_fc2"
+  type: "InnerProduct"
+  bottom: "recls_fc1"
+  top: "recls_fc2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 2
+     weight_filler {
+        type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "recls_fc2_sigmoid"
+  type: "Sigmoid"
+  bottom: "recls_fc2"
+  top: "recls_fc2_sigmoid"
+}
+
+
+
+
+
+
+
+

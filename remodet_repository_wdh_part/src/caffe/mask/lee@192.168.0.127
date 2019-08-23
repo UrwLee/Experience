@@ -1,0 +1,322 @@
+#ifdef USE_OPENCV
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#endif  // USE_OPENCV
+
+#include <iostream>
+#include <algorithm>
+#include <fstream>
+using namespace cv;
+using namespace std;
+
+#include <string>
+#include <sstream>
+#include <vector>
+#include <stdio.h>
+
+#include "caffe/mask/bbox_data_transformer.hpp"
+#include "caffe/util/io.hpp"
+#include "caffe/util/benchmark.hpp"
+#include "caffe/util/math_functions.hpp"
+#include "caffe/util/rng.hpp"
+#include "caffe/util/im_transforms.hpp"
+
+namespace caffe {
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::Transform(AnnoData<Dtype>& anno, cv::Mat* image,
+                                    vector<BBoxData<Dtype> >* bboxes,
+                                    BoundingBox<Dtype>* crop_bbox, bool* doflip) {
+  Normalize(anno);
+  // // 裁剪过程
+  randomCrop(anno, image, crop_bbox);
+  CHECK(image->data);
+  // // 失真
+  randomDistortion(image, anno);
+  // // flip
+  randomFlip(anno, *image, doflip);
+  // // resized
+  fixedResize(anno, *image);
+  // // save to bboxes
+  copy_label(anno, bboxes);
+  // // visualize
+  if (param_.visualize()) {
+    visualize(*image, *bboxes);
+  }
+}
+
+// éšæœºè£å‰ª/scale
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::randomCrop(AnnoData<Dtype>& anno, cv::Mat* image, BoundingBox<Dtype>* crop_bbox) {
+  // image
+  *image = cv::imread(anno.img_path.c_str());
+  if (!image->data) {
+    LOG(FATAL) << "Error when open image file: " << anno.img_path;
+  }
+  CHECK_EQ(image->cols, anno.img_width);
+  CHECK_EQ(image->rows, anno.img_height);
+  getCropBBox(anno, crop_bbox);
+  TransCrop(anno,*crop_bbox,image);
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::getCropBBox(AnnoData<Dtype>& anno, BoundingBox<Dtype>* crop_bbox) {
+    // get a random value [0-1]
+    // float prob = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+    // get max width & height
+    float h_max, w_max;
+    if(param_.has_sample_sixteennine()){
+    h_max = std::min(anno.img_height * 1.0, anno.img_width * 9.0 / 16.0) / anno.img_height;
+    w_max = std::min(anno.img_height * 16.0 / 9.0, anno.img_width * 1.0) / anno.img_width;
+    } else{
+    h_max = 1.0;
+    w_max = 1.0;
+    
+    }
+    // if(prob > 0.5) {
+    //   // 16:9
+    //   h_max = std::min(anno.img_height * 1.0, anno.img_width * 9.0 / 16.0) / anno.img_height;
+    //   w_max = std::min(anno.img_height * 16.0 / 9.0, anno.img_width * 1.0) / anno.img_width;
+    // } else {
+    //   // 9:16
+    //   h_max = std::min(anno.img_height * 1.0, anno.img_width * 16.0 / 9.0) / anno.img_height;
+    //   w_max = std::min(anno.img_height * 9.0 / 16.0, anno.img_width * 1.0) / anno.img_width;
+    // }
+    // get sampler
+    if (phase_ == TRAIN) {
+      if (param_.batch_sampler_size() == 0) {
+        LOG(FATAL) << "In training-phase, at least one batch_sampler should be defined in random-crop augmention.";
+      }
+      vector<BoundingBox<Dtype> > sample_bboxes;
+      vector<BatchSampler> samplers;
+      for (int s = 0; s < param_.batch_sampler_size(); ++s) {
+        samplers.push_back(param_.batch_sampler(s));
+      }
+
+      if (param_.has_sample_sixteennine()){
+        if(param_.sample_sixteennine()){
+          GenerateBatchSamples16_9(anno, samplers, &sample_bboxes, h_max, w_max);
+        } else {
+          GenerateBatchSamples(anno, samplers, &sample_bboxes);
+        }   
+      } else {
+          GenerateBatchSamples(anno, samplers, &sample_bboxes);
+      }
+   
+      if (sample_bboxes.size() > 0) {
+        int idx = caffe_rng_rand() % sample_bboxes.size();
+        *crop_bbox = sample_bboxes[idx];
+      } else {
+        crop_bbox->x1_ = 0.5-w_max/2.0;
+        crop_bbox->x2_ = 0.5+w_max/2.0;
+        crop_bbox->y1_ = 0.5-h_max/2.0;
+        crop_bbox->y2_ = 0.5+h_max/2.0;
+      }
+    } else {
+      crop_bbox->x1_ = 0.5-w_max/2.0;
+      crop_bbox->x2_ = 0.5+w_max/2.0;
+      crop_bbox->y1_ = 0.5-h_max/2.0;
+      crop_bbox->y2_ = 0.5+h_max/2.0;
+    }
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::TransCrop(AnnoData<Dtype>& anno,
+                                            const BoundingBox<Dtype>& crop_bbox,
+                                            cv::Mat* image) {
+  const int img_width = image->cols;
+  const int img_height = image->rows;
+  // modify header
+  anno.img_width = (int)(img_width * (crop_bbox.get_width()));
+  anno.img_height = (int)(img_height * (crop_bbox.get_height()));
+  // image crop
+  int w_off_int = (int)(crop_bbox.x1_ * img_width);
+  int h_off_int = (int)(crop_bbox.y1_ * img_height);
+  int crop_w_int = (int)(img_width * (crop_bbox.get_width()));
+  int crop_h_int = (int)(img_height * (crop_bbox.get_height()));
+  cv::Rect roi(w_off_int, h_off_int, crop_w_int, crop_h_int);
+  cv::Mat image_back = image->clone();
+  *image = image_back(roi);
+  // scan all instances, delete the crop boxes
+  int num_keep = 0;
+  typename vector<Instance<Dtype> >::iterator it;
+  for (it = anno.instances.begin(); it != anno.instances.end();) {
+    BoundingBox<Dtype>& gt_bbox = it->bbox;
+    BoundingBox<Dtype> proj_bbox;
+    // å®žä¾‹ä¿ç•™
+    Dtype emit_coverage_thre = 0;
+    if (param_.has_emit_coverage_thre()){
+      emit_coverage_thre = param_.emit_coverage_thre();
+    } else {
+      Dtype area_gt = gt_bbox.compute_area();  
+      // LOG(INFO) << "area_gt " << area_gt;
+      for (int s = 0; s < param_.emit_area_check_size(); ++s) {
+        if (area_gt< param_.emit_area_check(s)){
+            emit_coverage_thre = param_.emit_coverage_thre_multiple(s);
+            break;
+          }
+      }
+    } 
+
+    if (gt_bbox.project_bbox(crop_bbox, &proj_bbox) >= emit_coverage_thre) {
+        // boxæ›´æ–°
+        // LOG(INFO) << "project_bbox_area " << gt_bbox.project_bbox(crop_bbox, &proj_bbox)<<", emit_coverage_thre "<<emit_coverage_thre;
+        it->bbox = proj_bbox;
+        ++num_keep;
+        ++it;
+      } else {
+        it = anno.instances.erase(it);
+      }       
+  }
+  anno.num_person = num_keep;
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::randomDistortion(cv::Mat* image, AnnoData<Dtype>& anno) {
+  cv::Mat img = image->clone();
+  CHECK_EQ(img.cols, anno.img_width);
+  CHECK_EQ(img.rows, anno.img_height);
+  CHECK_EQ(img.channels(), 3);
+  *image = DistortImage(img, param_.dis_param());
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::randomFlip(AnnoData<Dtype>& anno, cv::Mat& image,
+                            bool* doflip) {
+  float dice = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+  *doflip = (dice <= param_.flip_prob());
+  if (*doflip) {
+    cv::flip(image, image, 1);
+    for (int i = 0; i < anno.instances.size(); ++i) {
+      BoundingBox<Dtype>& bbox = anno.instances[i].bbox;
+      // bbox
+      Dtype temp = bbox.x2_;
+      bbox.x2_ = 1.0 - bbox.x1_;
+      bbox.x1_ = 1.0 - temp;
+    }
+  }
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::Normalize(AnnoData<Dtype>& anno) {
+ // bboxÒÔ¼°kpsÈ«²¿¹éÒ»»¯
+  const int image_width = anno.img_width;
+  const int image_height = anno.img_height;
+  // ËùÓÐÊµÀý
+  for (int i = 0; i < anno.instances.size(); ++i) {
+    BoundingBox<Dtype>& bbox = anno.instances[i].bbox;
+    bbox.x1_ /= (Dtype)image_width;
+    bbox.x2_ /= (Dtype)image_width;
+    bbox.y1_ /= (Dtype)image_height;
+    bbox.y2_ /= (Dtype)image_height;
+  }
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::copy_label(AnnoData<Dtype>& anno, vector<BBoxData<Dtype> >* boxes) {
+  boxes->clear();
+  if (anno.instances.size() == 0) return;
+  for (int i = 0; i < anno.instances.size(); ++i) {
+    BBoxData<Dtype> bbox_element;
+    Instance<Dtype>& ins = anno.instances[i];
+    // bbox
+    bbox_element.bindex = ins.bindex;
+    bbox_element.cid = ins.cid;
+    bbox_element.pid = ins.pid;
+    bbox_element.is_diff = ins.is_diff;
+    bbox_element.iscrowd = ins.iscrowd;
+    bbox_element.bbox = ins.bbox;
+    boxes->push_back(bbox_element);
+  }
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::fixedResize(AnnoData<Dtype>& anno, cv::Mat& image) {
+  // ä¿®æ”¹header
+  anno.img_width = param_.resized_width();
+  anno.img_height = param_.resized_height();
+  // resize å›¾åƒ
+  cv::Mat image_rsz;
+  resize(image, image_rsz, Size(param_.resized_width(), param_.resized_height()), INTER_LINEAR);
+  image = image_rsz;
+}
+
+template<typename Dtype>
+void BBoxDataTransformer<Dtype>::visualize(cv::Mat& image, vector<BBoxData<Dtype> >& boxes) {
+  cv::Mat img_vis = image.clone();
+  static int counter = 0;
+  static const int color_maps[18] = {255,0,0,0,255,0,0,0,255,255,0,128,0,128,128,128,128,255};
+  for (int i = 0; i < boxes.size(); ++i) {
+    BBoxData<Dtype>& box = boxes[i];
+    BoundingBox<Dtype>& tbox = box.bbox;
+    BoundingBox<Dtype> bbox_real;
+    bbox_real.x1_ = tbox.x1_ * img_vis.cols;
+    bbox_real.y1_ = tbox.y1_ * img_vis.rows;
+    bbox_real.x2_ = tbox.x2_ * img_vis.cols;
+    bbox_real.y2_ = tbox.y2_ * img_vis.rows;
+    if (box.iscrowd && (box.cid == 0)) continue;
+    const int cid = box.cid;
+    int r = color_maps[3*(cid % 6)];
+    int g = color_maps[3*(cid % 6) + 1];
+    int b = color_maps[3*(cid % 6) + 2];
+    bbox_real.Draw(r,g,b,&img_vis);
+  }
+  char imagename [256];
+  sprintf(imagename, "%s/augment_%06d.jpg", param_.save_dir().c_str(), counter);
+  imwrite(imagename, img_vis);
+  counter++;
+}
+
+// æ˜¾ç¤ºå‡½æ•°
+template<typename Dtype>
+void BBoxDataTransformer<Dtype>::visualize(AnnoData<Dtype>& anno, cv::Mat& image) {
+  cv::Mat img_vis = image.clone();
+  static int counter = 0;
+  static const int color_maps[18] = {255,0,0,0,255,0,0,0,255,255,0,128,0,128,128,128,128,255};
+  for (int i = 0; i < anno.instances.size(); ++i) {
+    BoundingBox<Dtype>& bbox = anno.instances[i].bbox;
+    int r = color_maps[3*(i % 6)];
+    int g = color_maps[3*(i % 6) + 1];
+    int b = color_maps[3*(i % 6) + 2];
+    // ç»˜åˆ¶box
+    BoundingBox<Dtype> bbox_real;
+    bbox_real.x1_ = bbox.x1_ * img_vis.cols;
+    bbox_real.y1_ = bbox.y1_ * img_vis.rows;
+    bbox_real.x2_ = bbox.x2_ * img_vis.cols;
+    bbox_real.y2_ = bbox.y2_ * img_vis.rows;
+    if (anno.instances[i].iscrowd) {
+      bbox_real.Draw(0,0,0,&img_vis);
+    } else {
+      bbox_real.Draw(r,g,b,&img_vis);
+    }
+  }
+  char imagename [256];
+  sprintf(imagename, "%s/augment_%06d.jpg", param_.save_dir().c_str(), counter);
+  imwrite(imagename, img_vis);
+  counter++;
+}
+
+template <typename Dtype>
+void BBoxDataTransformer<Dtype>::InitRand() {
+  const bool needs_rand = (phase_ == TRAIN);
+  if (needs_rand) {
+    const unsigned int rng_seed = caffe_rng_rand();
+    rng_.reset(new Caffe::RNG(rng_seed));
+  } else {
+    rng_.reset();
+  }
+}
+
+template <typename Dtype>
+int BBoxDataTransformer<Dtype>::Rand(int n) {
+  CHECK(rng_);
+  CHECK_GT(n, 0);
+  caffe::rng_t* rng =
+      static_cast<caffe::rng_t*>(rng_->generator());
+  return ((*rng)() % n);
+}
+
+INSTANTIATE_CLASS(BBoxDataTransformer);
+
+}  // namespace caffe

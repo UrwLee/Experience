@@ -1,0 +1,49 @@
+name: "Pose_Det_16_9_release_0"
+input:"data"
+input_shape{
+  dim:1
+  dim:128
+  dim:128
+  dim:128
+}
+#layer {
+#  name: "conv1"
+#  type: "Convolution"
+#  #type: "ConvolutionDepthwiseNHWC"
+#  #type: "ConvolutionNHWC"
+#  bottom: "data"
+#  top: "conv1"
+#  param {
+#    lr_mult: 0.1
+#    decay_mult: 0.1
+#  }
+#  convolution_param {
+#    num_output: 128
+#    bias_term: false
+#    pad: 1
+#    kernel_size: 3
+#    group: 1
+#    stride: 1
+#    weight_filler {
+#      type: "gaussian"
+#      std: 0.01
+#    }
+#    bias_filler{
+#      type: "constant"
+#      value: 0
+#    }
+#  }
+#}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "data"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+    pad: 0
+  }
+}
+

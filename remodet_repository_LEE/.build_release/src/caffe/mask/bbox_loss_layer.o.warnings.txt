@@ -1,0 +1,16 @@
+src/caffe/mask/bbox_loss_layer.cpp: In instantiation of ‘void caffe::BBoxLossLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = float]’:
+src/caffe/mask/bbox_loss_layer.cpp:889:1:   required from here
+src/caffe/mask/bbox_loss_layer.cpp:383:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_layer.cpp:476:7: warning: unused variable ‘match_hand’ [-Wunused-variable]
+   int match_hand = 0;
+       ^
+src/caffe/mask/bbox_loss_layer.cpp: In instantiation of ‘void caffe::BBoxLossLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = double]’:
+src/caffe/mask/bbox_loss_layer.cpp:889:1:   required from here
+src/caffe/mask/bbox_loss_layer.cpp:383:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_layer.cpp:476:7: warning: unused variable ‘match_hand’ [-Wunused-variable]
+   int match_hand = 0;
+       ^

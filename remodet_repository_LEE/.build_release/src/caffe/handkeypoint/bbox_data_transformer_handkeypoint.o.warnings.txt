@@ -1,0 +1,80 @@
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*) [with Dtype = float]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:176:11: warning: unused variable ‘coverage’ [-Wunused-variable]
+     float coverage = gt_bbox.project_bbox(crop_bbox, &proj_bbox);
+           ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:285:9: warning: unused variable ‘stride’ [-Wunused-variable]
+     int stride=param_.stride();
+         ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::augmentation_rotate(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:52: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                    ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:92: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                            ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:141: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                                                                             ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:384:13: warning: value computed is not used [-Wunused-value]
+             anno.instances[i].joint.isVisible[j]==2;
+             ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::test(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:460:24: warning: variable ‘proj_bbox’ set but not used [-Wunused-but-set-variable]
+     BoundingBox<Dtype> proj_bbox = it->bbox;
+                        ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:456:7: warning: unused variable ‘width’ [-Wunused-variable]
+   int width=anno.img_width;
+       ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:457:7: warning: unused variable ‘height’ [-Wunused-variable]
+   int height=anno.img_height;
+       ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::get_mask(caffe::AnnoData<Dtype>&, cv::Mat&, Dtype*, Dtype*) [with Dtype = float]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:492:7: warning: unused variable ‘channelOffset’ [-Wunused-variable]
+   int channelOffset = grid_y * grid_x;
+       ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*) [with Dtype = double]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:176:11: warning: unused variable ‘coverage’ [-Wunused-variable]
+     float coverage = gt_bbox.project_bbox(crop_bbox, &proj_bbox);
+           ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:285:9: warning: unused variable ‘stride’ [-Wunused-variable]
+     int stride=param_.stride();
+         ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::augmentation_rotate(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:52: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                    ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:92: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                            ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:383:141: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                                                                             ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:384:13: warning: value computed is not used [-Wunused-value]
+             anno.instances[i].joint.isVisible[j]==2;
+             ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::test(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:460:24: warning: variable ‘proj_bbox’ set but not used [-Wunused-but-set-variable]
+     BoundingBox<Dtype> proj_bbox = it->bbox;
+                        ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:456:7: warning: unused variable ‘width’ [-Wunused-variable]
+   int width=anno.img_width;
+       ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:457:7: warning: unused variable ‘height’ [-Wunused-variable]
+   int height=anno.img_height;
+       ^
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp: In instantiation of ‘void caffe::BBoxDataHandKeypointTransformer<Dtype>::get_mask(caffe::AnnoData<Dtype>&, cv::Mat&, Dtype*, Dtype*) [with Dtype = double]’:
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:669:1:   required from here
+src/caffe/handkeypoint/bbox_data_transformer_handkeypoint.cpp:492:7: warning: unused variable ‘channelOffset’ [-Wunused-variable]
+   int channelOffset = grid_y * grid_x;
+       ^

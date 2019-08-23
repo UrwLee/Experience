@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+import caffe
+from caffe import layers as L
+from caffe import params as P
+from google.protobuf import text_format
+#import inputParam
+import os
+import sys
+import math
+sys.path.append('../')
+from username import USERNAME
+sys.dont_write_bytecode = True
+# Net input size
+Input_Width = 512
+Input_Height = 288
+# RoiAlign Output size
+Roi_Width = 16
+Roi_Height = 16
+# Kps HeatMap size
+Rw_Kps = Roi_Width
+Rh_Kps = Roi_Height
+# Mask Binary-mask-size
+Rw_Mask = Roi_Width
+Rh_Mask = Roi_Height
+# scale for loss of kps & mask
+# Note: scale for kps: 1.0
+loss_scale_kps = 0.01
+# Note: scale for mask: 0.1
+loss_scale_mask = 0
+# kps
+kps_use_conv_layers = 6
+channels_of_kps = 128
+kernel_size_of_kps = 3
+pad_of_kps = 1
+kps_use_deconv_layers = 0
+# mask
+mask_use_conv_layers = 6
+channels_of_mask = 128
+kernel_size_of_mask = 3
+pad_of_mask = 1
+mask_use_deconv_layers = 0
+
+# ssdparam
+ssdparam = {
+    'boxsizes': [[0.1707,0.5096,0.95]],
+    'num_classes': 2,
+    'use_bn': False,
+    'prior_variance': [0.1,0.1,0.2,0.2],
+    'normalizations': [],
+    'aspect_ratios': [[[1, 0.25, 0.5],[1, 0.25, 0.5],[1, 0.25, 0.5]]],
+    'flip': True,
+    'clip': True,
+    'inter_layer_channels': [[[256,1],[128,3]]],
+    'kernel_size': 3,
+    'pad': 1,
+    'dropout': False,
+}
+
+# bbox-loss
+bbox_loss_param = {
+	'loc_loss_type': P.MultiBoxLoss.SMOOTH_L1,
+	'conf_loss_type': P.MultiBoxLoss.SOFTMAX,
+	'loc_weight': 0,
+	'conf_weight': 0,
+	'num_classes': 2,
+	'match_type': P.MultiBoxLoss.PER_PREDICTION,
+	'overlap_threshold': 0.5,
+	'use_difficult_gt': False,
+	'neg_pos_ratio': 3,
+	'neg_overlap': 0.5,
+	'code_type': P.PriorBox.CENTER_SIZE,
+    'size_threshold': 0.001,
+}
+det_out_param = {
+	'num_classes': 2,
+	'share_location': True,
+	'variance_encoded_in_target':False,
+	'conf_threshold':0.5,
+    'nms_threshold': 0.45,
+    'size_threshold':0.001,
+    'code_type': P.PriorBox.CENTER_SIZE,
+    'top_k': 200,
+    'visual_param': {
+                # enable or disable the visualize function
+                'visualize': False,
+                'conf_threshold':0.8,
+                'size_threshold':0.01,
+                # image display size
+                'display_maxsize': 1000,
+                # rectangle line width
+                'line_width': 4,
+                # rectangle color
+                'color_param': {
+                    'rgb': {
+                        'val': [0,255,0],
+                    }
+                }
+        }
+}
+det_eval_param = {
+	'num_classes':2,
+	'evaluate_difficult_gt':False,
+	'boxsize_threshold': [0,0.01,0.05,0.1,0.15,0.2,0.25],
+	'iou_threshold': [0.9,0.75,0.5],
+	'name_size_file': "",
+
+}
+# ROIAlign
+roi_align_param = {
+	'roi_resized_width': Roi_Height,
+	'roi_resized_height': Roi_Width,
+	'inter_times': 1,
+	'spatial_scale': 1./16.,
+}

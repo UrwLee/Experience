@@ -1,0 +1,16 @@
+src/caffe/mask/bbox_data_layer.cpp: In instantiation of ‘void caffe::BBoxDataLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_layer.cpp:538:1:   required from here
+src/caffe/mask/bbox_data_layer.cpp:160:7: warning: unused variable ‘num_pic_gt’ [-Wunused-variable]
+   int num_pic_gt = 0;
+       ^
+src/caffe/mask/bbox_data_layer.cpp:161:7: warning: unused variable ‘num_pic_no_gt’ [-Wunused-variable]
+   int num_pic_no_gt = 0; 
+       ^
+src/caffe/mask/bbox_data_layer.cpp: In instantiation of ‘void caffe::BBoxDataLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_layer.cpp:538:1:   required from here
+src/caffe/mask/bbox_data_layer.cpp:160:7: warning: unused variable ‘num_pic_gt’ [-Wunused-variable]
+   int num_pic_gt = 0;
+       ^
+src/caffe/mask/bbox_data_layer.cpp:161:7: warning: unused variable ‘num_pic_no_gt’ [-Wunused-variable]
+   int num_pic_no_gt = 0; 
+       ^

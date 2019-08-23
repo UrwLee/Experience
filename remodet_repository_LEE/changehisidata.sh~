@@ -1,0 +1,4 @@
+scp src/caffe/proto/caffe.proto zhangming@192.168.0.66:~/work/remodet_repository/src/caffe/proto
+scp src/caffe/mask/bbox_data_layer.cpp zhangming@192.168.0.66:~/work/remodet_repository/src/caffe/mask
+scp include/caffe/mask/bbox_data_layer.hpp zhangming@192.168.0.66:~/work/remodet_repository/include/caffe/mask
+scp include/caffe/util/io.hpp zhangming@192.168.0.66:~/work/remodet_repository/include/caffe/util

@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4338649c-7f61-4128-bfb8-c4e0c0235c46" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalayer_check.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="93" column="87" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="865" column="116" selection-start-line="865" selection-start-column="112" selection-end-line="865" selection-end-column="116" />
+              <folding>
+                <element signature="e#14#32#0" expanded="true" />
+                <element signature="e#944#1711#0" />
+                <element signature="e#1768#2832#0" />
+                <element signature="e#2887#3602#0" />
+                <element signature="e#3643#5148#0" />
+                <element signature="e#5200#5974#0" />
+                <element signature="e#6015#6433#0" />
+                <element signature="e#6474#7282#0" />
+                <element signature="e#7333#8359#0" />
+                <element signature="e#8431#9537#0" />
+                <element signature="e#9579#10906#0" />
+                <element signature="e#10966#12668#0" />
+                <element signature="e#12703#13464#0" />
+                <element signature="e#13541#16481#0" />
+                <element signature="e#16518#17378#0" />
+                <element signature="e#17462#19348#0" />
+                <element signature="e#19390#19862#0" />
+                <element signature="e#20157#20979#0" />
+                <element signature="e#21159#22696#0" />
+                <element signature="e#22801#23787#0" />
+                <element signature="e#25779#29489#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>weight</find>
+      <find>label_to_box</find>
+      <find>waitKey</find>
+      <find>os.path.join(FindPath,file_name)</find>
+      <find>cid</find>
+      <find>file</find>
+      <find>utils</find>
+      <find>blob_to_img</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/read_xml.py" />
+        <option value="$PROJECT_DIR$/image_test.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_ssd/scpFile.py" />
+        <option value="$PROJECT_DIR$/diff.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_dis0.5/scpFile.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn/scpFile.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/RemoNet_fpn/scpFile.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini_border/scpFile.py" />
+        <option value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini/scpFile.py" />
+        <option value="$PROJECT_DIR$/resize.py" />
+        <option value="$PROJECT_DIR$/../Data_manage/extarct_json/extarct_json.py" />
+        <option value="$PROJECT_DIR$/../Data_manage/extarct_json/show_pic.py" />
+        <option value="$PROJECT_DIR$/datalayer_check.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="577" />
+    <option name="y" value="160" />
+    <option name="width" value="1914" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="check_data_layer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="check_data_layer" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Course" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.datalayer_check">
+    <configuration name="datalayer_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="check_data_layer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/datalayer_check.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extarct_json" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="check_data_layer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Data_manage/extarct_json" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Data_manage/extarct_json/extarct_json.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scpFile (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="check_data_layer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini_border" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini_border/scpFile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="show_pic" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="check_data_layer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Data_manage/extarct_json" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Data_manage/extarct_json/show_pic.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="check_data_layer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.datalayer_check" />
+      <item itemvalue="Python.scpFile (4)" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.extarct_json" />
+      <item itemvalue="Python.show_pic" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.datalayer_check" />
+        <item itemvalue="Python.show_pic" />
+        <item itemvalue="Python.extarct_json" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.scpFile (4)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4338649c-7f61-4128-bfb8-c4e0c0235c46" name="Default Changelist" comment="" />
+      <created>1548054044252</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548054044252</updated>
+      <workItem from="1564557633344" duration="3921000" />
+      <workItem from="1565336023436" duration="6370000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10291000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="25" width="1922" height="1059" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914238" weight="0.0858209" />
+      <window_info id="Structure" order="1" sideWeight="0.50085765" side_tool="true" weight="0.0858209" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.16008772" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32922733" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32922733" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="11" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/check_data_layer$datalayer_check.coverage" NAME="datalayer_check Coverage Results" MODIFIED="1565341560970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_ssd/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_cat_dog_A_dis0.5/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../save_det_xml_to_data.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_cat_dog_A/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_dis0.5/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/RemoNet_fpn/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_mini/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini_border/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/../Det_CatDog_llp/DarkNet_fpn_mini/scpFile.py" />
+    <entry file="file://$PROJECT_DIR$/resize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3440">
+          <caret line="176" column="9" selection-start-line="176" selection-start-column="9" selection-end-line="176" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <marker date="1551411653659" expanded="true" signature="1111:1433" ph="..." />
+            <marker date="1551411653659" expanded="true" signature="2475:2704" ph="..." />
+            <marker date="1551411653659" expanded="true" signature="3623:3625" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Data_manage/write_xml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="70" column="63" lean-forward="true" selection-start-line="3" selection-end-line="70" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmEdu2018.3/system/python_stubs/921545046/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="2624" column="8" selection-start-line="2624" selection-start-column="8" selection-end-line="2624" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Data_manage/extarct_json/extarct_json.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1480">
+          <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+          <folding>
+            <element signature="e#16#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmEdu2018.3/system/python_stubs/921545046/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56610">
+          <caret line="3154" column="4" selection-start-line="3154" selection-start-column="4" selection-end-line="3154" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_xml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Data_manage/extarct_json/show_pic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Data_manage/read_remoanno_xml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AIC_BIG_MEN.pkl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalayer_check.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="93" column="87" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="865" column="116" selection-start-line="865" selection-start-column="112" selection-end-line="865" selection-end-column="116" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+            <element signature="e#944#1711#0" />
+            <element signature="e#1768#2832#0" />
+            <element signature="e#2887#3602#0" />
+            <element signature="e#3643#5148#0" />
+            <element signature="e#5200#5974#0" />
+            <element signature="e#6015#6433#0" />
+            <element signature="e#6474#7282#0" />
+            <element signature="e#7333#8359#0" />
+            <element signature="e#8431#9537#0" />
+            <element signature="e#9579#10906#0" />
+            <element signature="e#10966#12668#0" />
+            <element signature="e#12703#13464#0" />
+            <element signature="e#13541#16481#0" />
+            <element signature="e#16518#17378#0" />
+            <element signature="e#17462#19348#0" />
+            <element signature="e#19390#19862#0" />
+            <element signature="e#20157#20979#0" />
+            <element signature="e#21159#22696#0" />
+            <element signature="e#22801#23787#0" />
+            <element signature="e#25779#29489#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

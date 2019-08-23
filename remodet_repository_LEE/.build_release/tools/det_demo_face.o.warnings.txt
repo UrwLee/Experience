@@ -1,0 +1,7 @@
+tools/det_demo_face.cpp: In function ‘int main(int, char**)’:
+tools/det_demo_face.cpp:170:16: warning: unused variable ‘area’ [-Wunused-variable]
+          float area = (l_bbox.bbox.x2_-l_bbox.bbox.x1_)*(l_bbox.bbox.y2_-l_bbox.bbox.y1_)/float(resized_width)/float(resized_height);
+                ^
+tools/det_demo_face.cpp:154:10: warning: unused variable ‘total_frames’ [-Wunused-variable]
+      int total_frames = cap.get(CV_CAP_PROP_FRAME_COUNT);
+          ^

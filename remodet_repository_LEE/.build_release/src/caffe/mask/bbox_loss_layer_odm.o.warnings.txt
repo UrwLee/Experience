@@ -1,0 +1,22 @@
+src/caffe/mask/bbox_loss_layer_odm.cpp: In instantiation of ‘void caffe::BBoxLossODMLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = float]’:
+src/caffe/mask/bbox_loss_layer_odm.cpp:952:1:   required from here
+src/caffe/mask/bbox_loss_layer_odm.cpp:420:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_layer_odm.cpp:539:9: warning: unused variable ‘match_hand’ [-Wunused-variable]
+     int match_hand = 0;
+         ^
+src/caffe/mask/bbox_loss_layer_odm.cpp:229:16: warning: unused variable ‘arm_conf_data’ [-Wunused-variable]
+   const Dtype* arm_conf_data = bottom[5]->cpu_data();
+                ^
+src/caffe/mask/bbox_loss_layer_odm.cpp: In instantiation of ‘void caffe::BBoxLossODMLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = double]’:
+src/caffe/mask/bbox_loss_layer_odm.cpp:952:1:   required from here
+src/caffe/mask/bbox_loss_layer_odm.cpp:420:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_layer_odm.cpp:539:9: warning: unused variable ‘match_hand’ [-Wunused-variable]
+     int match_hand = 0;
+         ^
+src/caffe/mask/bbox_loss_layer_odm.cpp:229:16: warning: unused variable ‘arm_conf_data’ [-Wunused-variable]
+   const Dtype* arm_conf_data = bottom[5]->cpu_data();
+                ^

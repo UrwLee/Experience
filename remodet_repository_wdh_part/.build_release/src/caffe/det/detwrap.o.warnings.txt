@@ -1,0 +1,8 @@
+src/caffe/det/detwrap.cpp: In instantiation of ‘cv::Mat caffe::DetWrapper<Dtype>::get_drawn_bboxes(caffe::DataFrame<Dtype>&, const std::vector<int>&, std::vector<caffe::LabeledBBox<Dtype> >*) [with Dtype = float]’:
+src/caffe/det/detwrap.cpp:228:1:   required from here
+src/caffe/det/detwrap.cpp:208:10: warning: unused variable ‘tmp_str’ [-Wunused-variable]
+     char tmp_str[256];
+          ^
+src/caffe/det/detwrap.cpp: In instantiation of ‘cv::Mat caffe::DetWrapper<Dtype>::get_drawn_bboxes(caffe::DataFrame<Dtype>&, const std::vector<int>&, std::vector<caffe::LabeledBBox<Dtype> >*) [with Dtype = double]’:
+src/caffe/det/detwrap.cpp:228:1:   required from here
+src/caffe/det/detwrap.cpp:208:10: warning: unused variable ‘tmp_str’ [-Wunused-variable]

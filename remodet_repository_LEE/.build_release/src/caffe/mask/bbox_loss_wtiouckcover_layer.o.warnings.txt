@@ -1,0 +1,16 @@
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp: In instantiation of ‘void caffe::BBoxLossWTIOUCKCOVERLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = float]’:
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:931:1:   required from here
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:476:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:415:10: warning: unused variable ‘flag_mtanchorgt_allneg’ [-Wunused-variable]
+     bool flag_mtanchorgt_allneg = bbox_loss_param.flag_mtanchorgt_allneg();
+          ^
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp: In instantiation of ‘void caffe::BBoxLossWTIOUCKCOVERLayer<Dtype>::Forward_cpu(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = double]’:
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:931:1:   required from here
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:476:19: warning: unused variable ‘prior_id’ [-Wunused-variable]
+         const int prior_id = it->first;
+                   ^
+src/caffe/mask/bbox_loss_wtiouckcover_layer.cpp:415:10: warning: unused variable ‘flag_mtanchorgt_allneg’ [-Wunused-variable]
+     bool flag_mtanchorgt_allneg = bbox_loss_param.flag_mtanchorgt_allneg();
+          ^

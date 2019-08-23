@@ -1,0 +1,222 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+import caffe
+from caffe import layers as L
+from caffe import params as P
+from google.protobuf import text_format
+#import inputParam
+import os
+import sys
+import math
+sys.path.append('../')
+from username import USERNAME
+from yoloParam import yolo_Param
+from ssdParam import ssd_Param
+from yolo_ssdParam import yolo_ssd_Param
+from imageDataParam import get_imageDataParam
+sys.dont_write_bytecode = True
+# #################################################################################
+# caffe root: your caffe directory.
+caffe_root = "/home/{}/work/repository".format(USERNAME)
+# --------------------------------Network Cfg-------------------------------------
+net_width = 32*13
+net_height = 32*13
+# how much layers used for detection, Note: if use ssd, this param ignored.
+use_feature_layers_for_yolo = 3
+# top conv-layers built in baseNet: [num_layers] && [channels]
+# if use PVA, the following two parameters are ignored.
+# if use ssd, the following two parameters are ignored.
+extra_top_layers_forBaseNet = 2
+extra_top_depth_forBaseNet = 1024
+# --------------------------------Model Info--------------------------------------
+BaseNet="Yolo"
+DetMethod = "SSD"
+DataSets = "VOC_COCO"
+ModelLevel = "Base"
+Specs = """
+Base Cfg.
+"""
+Pretrained_Models_dir = "/home/{}/Models/PretainedModels".format(USERNAME)
+Results_dir = "/home/{}/Models/Results".format(USERNAME)
+InputScale = "{}".format(net_width) if net_width == net_height \
+    else "{}x{}".format(net_width,net_height)
+# -----------------------------config for computation----------------------------
+gpus = "0,1"
+snapshot_after_train = True
+test_initialization = False
+run_soon = True
+resume_training = True
+remove_old_models = False
+# --------------------------------solver Param-----------------------------------
+batchsize_1050 = 1
+batchsize_1080 = 12
+batchsize_per_device = batchsize_1050 if (len(gpus.split(','))==1) else batchsize_1080
+update_batchsize = max(len(gpus.split(',')) * batchsize_per_device * 2, 32)
+test_batchsize = 1
+train_max_itersize = 500000
+base_lr = 0.001
+weight_decay = 0.0005
+lr_policy = "plateau"
+stepsize = 40000
+stepvalue = [200000,350000,500000]
+plateau_winsize = [25000, 25000, 25000]
+gamma = 0.1
+momentum = 0.9
+snapshot = 20000
+display = 20
+average_loss = 20
+solve_type = "SGD"
+debug = False
+test_interval = 1000
+eval_type = "detection"
+# ap_version: '11point' / 'MaxIntegral' / 'Integral'
+ap_version = "Integral"
+random_seed = 150
+usrname = "zhangming" if len(gpus.split(',')) > 1 else USERNAME
+# ################################################################################
+# --------------------------------DO NOT MODIFIED--------------------------------
+# get detector param
+def get_detector_param():
+    if DetMethod == "SSD":
+        return ssd_Param
+    elif DetMethod == "YOLO":
+        return yolo_Param
+    elif DetMethod == "YOLO_SSD":
+        return yolo_ssd_Param    
+    else:
+        raise ValueError("Only SSD/YOLO are supported.")
+# get detector type
+def get_detector_type():
+    return DetMethod
+# get gpus
+def get_gpus():
+    return gpus
+# get num of gpus
+def get_gpunums():
+    return len(get_gpus().split(','))
+# batchsize for diffrent gpu setting
+def get_train_batchsize():
+    if get_gpunums() == 1:
+        return batchsize_1050
+    else:
+        return batchsize_1080
+# get update iters
+def get_update_iter():
+    return int(math.ceil(float(update_batchsize) / (batchsize_per_device * get_gpunums())))
+# get solver mode of caffe
+def get_solver_mode():
+    if get_gpunums() > 0:
+        return P.Solver.GPU
+    else:
+        return P.Solver.CPU
+# get device id of root solver
+def get_device_id():
+    if get_gpunums() > 0:
+        return int(get_gpus().split(',')[0])
+    else:
+        return -1
+# get test batchsize
+def get_test_batchsize():
+    return test_batchsize
+# get train max_iter_size
+def get_train_max_iter():
+    return train_max_itersize
+# get USERNAME
+def get_username_real():
+    if get_gpunums() == 2:
+        return "zhangming"
+    else:
+        return USERNAME
+# get num of samples of train/val
+def get_lines(source):
+    lines = 0
+    f = open(source,"r")
+    for line in f:
+        lines += 1
+    f.close()
+    return lines
+# get pretained Models
+def get_pretained_model():
+    if BaseNet == "VGG":
+        return "{}/VGG/VGG_ILSVRC_16_layers_fc_reduced.caffemodel".format(Pretrained_Models_dir)
+    elif BaseNet == "Res50":
+        return "{}/ResNet/ResNet-50-model.caffemodel".format(Pretrained_Models_dir)
+    elif BaseNet == "Res101":
+        return "{}/ResNet/ResNet-101-model.caffemodel".format(Pretrained_Models_dir)
+    elif BaseNet == "PVA":
+        return "{}/PVA/pva9.1_pretrained.caffemodel".format(Pretrained_Models_dir)
+    elif BaseNet == "Yolo":
+        return "{}/DarkNet/yolo2.caffemodel".format(Pretrained_Models_dir)
+    else:
+        raise ValueError("Only VGG/ResNet/PVA are supported.")
+# --------------------------------Source Params-----------------------------------
+root_folder = '/home/%s/Datasets/' % get_username_real()
+train_source = '/home/%s/Datasets/Layout/train.txt' % get_username_real()
+test_source = '/home/%s/Datasets/Layout/val.txt' % get_username_real()
+train_images_num = get_lines(train_source)
+test_images_num = get_lines(test_source)
+# get test max_iter_size
+def get_test_max_iter():
+    return test_images_num / get_test_batchsize()
+# get imagedataParam
+def get_image_data_param():
+    return get_imageDataParam(root_folder=root_folder, \
+                               train_source=train_source, \
+                               train_batchsize=batchsize_per_device, \
+                               test_source=test_source, \
+                               test_batchsize=test_batchsize)
+# get solver param
+def get_solver_param():
+    return {
+        # learning rate and update hyper-params
+        'base_lr': base_lr,
+        'weight_decay': weight_decay,
+        'lr_policy': lr_policy,
+        'stepsize': stepsize,
+        'stepvalue':stepvalue,
+        'gamma': gamma,
+        'plateau_winsize': plateau_winsize,
+        'momentum': momentum,
+        'iter_size': get_update_iter(),
+        'max_iter': get_train_max_iter(),
+        'snapshot': snapshot,
+        'display': display,
+        'average_loss': average_loss,
+        'type': solve_type,
+        'solver_mode': get_solver_mode(),
+        'device_id': get_device_id(),
+        'debug_info': debug,
+        'snapshot_after_train': snapshot_after_train,
+        # Test parameters
+        'test_iter': [get_test_max_iter()],
+        'test_interval': test_interval,
+        'eval_type': eval_type,
+        'test_initialization': test_initialization,
+        'random_seed' : random_seed,
+        'ap_version': ap_version,
+    }
+
+def get_all_params():
+    base_param = {
+        "net_width":net_width,
+        "net_height":net_height,
+        "use_feature_layers_for_yolo":use_feature_layers_for_yolo,
+        "extra_top_layers_forBaseNet":extra_top_layers_forBaseNet,
+        "extra_top_depth_forBaseNet":extra_top_depth_forBaseNet,
+        "batchsize_per_device":batchsize_per_device,
+        "update_batchsize":update_batchsize,
+        "base_lr":base_lr,
+        "weight_decay":weight_decay,
+        "lr_policy":lr_policy,
+        "stepvalue":stepvalue,
+        "plateau_winsize":plateau_winsize,
+        "gamma":gamma,
+        "momentum":momentum,
+        "solve_type":solve_type,
+        "ap_version":ap_version,
+    }
+    detector_param = get_detector_param()
+    image_param = get_image_data_param()
+    temp_param = dict(base_param, **image_param)
+    all_param = dict(temp_param, **detector_param)
+    return all_param

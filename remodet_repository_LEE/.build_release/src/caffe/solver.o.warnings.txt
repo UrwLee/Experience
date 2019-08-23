@@ -1,0 +1,16 @@
+src/caffe/solver.cpp: In instantiation of ‘void caffe::Solver<Dtype>::Step(int) [with Dtype = float]’:
+src/caffe/solver.cpp:1325:1:   required from here
+src/caffe/solver.cpp:307:36: warning: unused variable ‘result’ [-Wunused-variable]
+        const vector<Blob<Dtype>*>& result = net_->output_blobs();
+                                    ^
+src/caffe/solver.cpp:308:11: warning: unused variable ‘score_index’ [-Wunused-variable]
+       int score_index = 0;
+           ^
+src/caffe/solver.cpp: In instantiation of ‘void caffe::Solver<Dtype>::Step(int) [with Dtype = double]’:
+src/caffe/solver.cpp:1325:1:   required from here
+src/caffe/solver.cpp:307:36: warning: unused variable ‘result’ [-Wunused-variable]
+        const vector<Blob<Dtype>*>& result = net_->output_blobs();
+                                    ^
+src/caffe/solver.cpp:308:11: warning: unused variable ‘score_index’ [-Wunused-variable]
+       int score_index = 0;
+           ^

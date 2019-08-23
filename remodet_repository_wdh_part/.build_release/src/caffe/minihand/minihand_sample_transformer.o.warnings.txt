@@ -1,0 +1,30 @@
+src/caffe/minihand/minihand_sample_transformer.cpp: In instantiation of ‘void caffe::MinihandSampleTransformer<Dtype>::unNormalize(caffe::HandAnnoData<Dtype>&) [with Dtype = float]’:
+src/caffe/minihand/minihand_sample_transformer.cpp:473:1:   required from here
+src/caffe/minihand/minihand_sample_transformer.cpp:284:13: warning: unused variable ‘image_width’ [-Wunused-variable]
+   const int image_width  = anno.image_width; // 原始图片尺寸
+             ^
+src/caffe/minihand/minihand_sample_transformer.cpp:285:13: warning: unused variable ‘image_height’ [-Wunused-variable]
+   const int image_height = anno.image_height;
+             ^
+src/caffe/minihand/minihand_sample_transformer.cpp: In instantiation of ‘void caffe::MinihandSampleTransformer<Dtype>::unNormalize(caffe::HandAnnoData<Dtype>&) [with Dtype = double]’:
+src/caffe/minihand/minihand_sample_transformer.cpp:473:1:   required from here
+src/caffe/minihand/minihand_sample_transformer.cpp:284:13: warning: unused variable ‘image_width’ [-Wunused-variable]
+   const int image_width  = anno.image_width; // 原始图片尺寸
+             ^
+src/caffe/minihand/minihand_sample_transformer.cpp:285:13: warning: unused variable ‘image_height’ [-Wunused-variable]
+   const int image_height = anno.image_height;
+             ^
+src/caffe/minihand/minihand_sample_transformer.cpp: In member function ‘bool caffe::MinihandSampleTransformer<Dtype>::getCropBBox(caffe::HandAnnoData<Dtype>&, caffe::BoundingBox<Dtype>*, caffe::Phase) [with Dtype = float]’:
+src/caffe/minihand/minihand_sample_transformer.cpp:198:32: warning: ‘rh’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dh = anno.image_height - rh;
+                                ^
+src/caffe/minihand/minihand_sample_transformer.cpp:197:31: warning: ‘rw’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dw = anno.image_width - rw;
+                               ^
+src/caffe/minihand/minihand_sample_transformer.cpp: In member function ‘bool caffe::MinihandSampleTransformer<Dtype>::getCropBBox(caffe::HandAnnoData<Dtype>&, caffe::BoundingBox<Dtype>*, caffe::Phase) [with Dtype = double]’:
+src/caffe/minihand/minihand_sample_transformer.cpp:198:32: warning: ‘rh’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dh = anno.image_height - rh;
+                                ^
+src/caffe/minihand/minihand_sample_transformer.cpp:197:31: warning: ‘rw’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dw = anno.image_width - rw;
+                               ^

@@ -1,0 +1,80 @@
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*) [with Dtype = float]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:186:11: warning: unused variable ‘coverage’ [-Wunused-variable]
+     float coverage = gt_bbox.project_bbox(crop_bbox, &proj_bbox);
+           ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:324:9: warning: unused variable ‘stride’ [-Wunused-variable]
+     int stride=param_.stride();
+         ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::augmentation_rotate(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:52: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                    ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:92: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                            ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:141: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                                                                             ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:423:13: warning: value computed is not used [-Wunused-value]
+             anno.instances[i].joint.isVisible[j]==2;
+             ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::test(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:499:24: warning: variable ‘proj_bbox’ set but not used [-Wunused-but-set-variable]
+     BoundingBox<Dtype> proj_bbox = it->bbox;
+                        ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:495:7: warning: unused variable ‘width’ [-Wunused-variable]
+   int width=anno.img_width;
+       ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:496:7: warning: unused variable ‘height’ [-Wunused-variable]
+   int height=anno.img_height;
+       ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::get_mask(caffe::AnnoData<Dtype>&, cv::Mat&, Dtype*, Dtype*) [with Dtype = float]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:531:7: warning: unused variable ‘channelOffset’ [-Wunused-variable]
+   int channelOffset = grid_y * grid_x;
+       ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*) [with Dtype = double]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:186:11: warning: unused variable ‘coverage’ [-Wunused-variable]
+     float coverage = gt_bbox.project_bbox(crop_bbox, &proj_bbox);
+           ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:324:9: warning: unused variable ‘stride’ [-Wunused-variable]
+     int stride=param_.stride();
+         ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::augmentation_rotate(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:52: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                    ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:92: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                            ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:422:141: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+           if(anno.instances[i].joint.joints[j].x<0 | anno.instances[i].joint.joints[j].y<0 | anno.instances[i].joint.joints[j].x>=image.cols|anno.instances[i].joint.joints[j].y>=image.rows){
+                                                                                                                                             ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:423:13: warning: value computed is not used [-Wunused-value]
+             anno.instances[i].joint.isVisible[j]==2;
+             ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::test(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:499:24: warning: variable ‘proj_bbox’ set but not used [-Wunused-but-set-variable]
+     BoundingBox<Dtype> proj_bbox = it->bbox;
+                        ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:495:7: warning: unused variable ‘width’ [-Wunused-variable]
+   int width=anno.img_width;
+       ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:496:7: warning: unused variable ‘height’ [-Wunused-variable]
+   int height=anno.img_height;
+       ^
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp: In instantiation of ‘void caffe::BBoxDataSinglePersonPoseTransformer<Dtype>::get_mask(caffe::AnnoData<Dtype>&, cv::Mat&, Dtype*, Dtype*) [with Dtype = double]’:
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:707:1:   required from here
+src/caffe/singlepersonpose/bbox_data_transformer_singlepersonpose.cpp:531:7: warning: unused variable ‘channelOffset’ [-Wunused-variable]
+   int channelOffset = grid_y * grid_x;
+       ^

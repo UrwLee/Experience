@@ -1,0 +1,8 @@
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp: In instantiation of ‘void caffe::BBoxDataMultiResizeTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp:659:1:   required from here
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp:550:9: warning: unused variable ‘min_size’ [-Wunused-variable]
+   float min_size=float(min(anno.img_width,anno.img_height));
+         ^
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp: In instantiation of ‘void caffe::BBoxDataMultiResizeTransformer<Dtype>::fixedResize(caffe::AnnoData<Dtype>&, cv::Mat&) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp:659:1:   required from here
+src/caffe/mask/bbox_data_transformer_multi_resize.cpp:550:9: warning: unused variable ‘min_size’ [-Wunused-variable]

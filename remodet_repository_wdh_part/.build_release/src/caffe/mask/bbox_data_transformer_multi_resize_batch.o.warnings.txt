@@ -1,0 +1,8 @@
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp: In instantiation of ‘void caffe::BBoxDataMultiResizeBatchTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp:547:1:   required from here
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp:226:11: warning: unused variable ‘prob’ [-Wunused-variable]
+     float prob = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+           ^
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp: In instantiation of ‘void caffe::BBoxDataMultiResizeBatchTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp:547:1:   required from here
+src/caffe/mask/bbox_data_transformer_multi_resize_batch.cpp:226:11: warning: unused variable ‘prob’ [-Wunused-variable]

@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+import caffe
+from caffe import layers as L
+from caffe import params as P
+from caffe.proto import caffe_pb2
+import sys
+sys.dont_write_bytecode = True
+# ----------------------- -------RtposeParam----------------------------------
+pose_coco_kwargs = {
+    # resize
+    'resize_factor': 8,
+    'resize_scale_gap': 0.3,
+    'resize_start_scale': 1.0,
+    # nms
+    'nms_threshold': 0.05,
+    'nms_max_peaks': 100,
+    'nms_num_parts': 18,
+    # connect
+    'conn_is_type_coco': True,
+    'conn_max_person': 10,
+    'conn_max_peaks_use': 50,
+    'conn_iters_pa_cal': 10,
+    'conn_connect_inter_threshold': 0.05,
+    'conn_connect_inter_min_nums': 1,
+    'conn_connect_min_subset_cnt': 3,
+    'conn_connect_min_subset_score': 0.3,
+    # visual
+    # POSE / HEATMAP_ID / HEATMAP_FROM / VECMAP_ID / VECMAP_FROM
+    'visual_type': P.Visualizepose.HEATMAP_FROM,
+    'visual_visualize': True,
+    'visual_draw_skeleton': True,
+    'visual_print_score': True,
+    'visual_part_id': 3,
+    'visual_from_part': 0,
+    'visual_vec_id': 1,
+    'visual_from_vec': 0,
+    'visual_pose_threshold': 0.01,
+    'visual_write_frames': False,
+    'visual_output_directory': "",
+}
+
+pose_mpi_kwargs = {
+    # nms
+    'nms_threshold': 0.2,
+    'nms_max_peaks': 64,
+    'nms_num_parts': 15,
+    # connect
+    'conn_is_type_coco': False,
+    'conn_max_person': 96,
+    'conn_max_peaks_use': 32,
+    'conn_iters_pa_cal': 10,
+    'conn_connect_inter_threshold': 0.01,
+    'conn_connect_inter_min_nums': 8,
+    'conn_connect_min_subset_cnt': 3,
+    'conn_connect_min_subset_score': 0.4,
+    # visual
+    'visual_type': P.Visualizepose.POSE,
+    'visual_visualize': False,
+    'visual_draw_skeleton': True,
+    'visual_part_id': 0,
+    'visual_from_part': 0,
+    'visual_pose_threshold': 0.01,
+    'visual_write_frames': False,
+    'visual_output_directory': "",
+}

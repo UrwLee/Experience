@@ -1,0 +1,139 @@
+# -*- coding: utf-8 -*-
+import os
+import sys
+sys.dont_write_bytecode = True
+import caffe
+from caffe import layers as L
+from caffe import params as P
+from caffe.proto import caffe_pb2
+sys.path.append('../')
+from ConvBNLayer import *
+
+def YoloNet(net, from_layer="data", lr=1, decay=1):
+
+	out_layer = 'conv1'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=32, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'pool1'
+	net[out_layer] = L.Pooling(net[from_layer], pool=P.Pooling.MAX,
+		kernel_size=2, stride=2, pad=0)
+	from_layer = out_layer
+
+	out_layer = 'conv2'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=64, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'pool2'
+	net[out_layer] = L.Pooling(net[from_layer], pool=P.Pooling.MAX,
+		kernel_size=2, stride=2, pad=0)
+	from_layer = out_layer
+
+	out_layer = 'conv3_1'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=128, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv3_2'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=64, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv3_3'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=128, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'pool3'
+	net[out_layer] = L.Pooling(net[from_layer], pool=P.Pooling.MAX,
+		kernel_size=2, stride=2, pad=0)
+	from_layer = out_layer
+
+	out_layer = 'conv4_1'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=256, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv4_2'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=128, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv4_3'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=256, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'pool4'
+	net[out_layer] = L.Pooling(net[from_layer], pool=P.Pooling.MAX,
+		kernel_size=2, stride=2, pad=0)
+	from_layer = out_layer
+
+	out_layer = 'conv5_1'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=512, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv5_2'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=256, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv5_3'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=512, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv5_4'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=256, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv5_5'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=512, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'pool5'
+	net[out_layer] = L.Pooling(net[from_layer], pool=P.Pooling.MAX,
+		kernel_size=2, stride=2, pad=0)
+	from_layer = out_layer
+
+	out_layer = 'conv6_1'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=1024, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_2'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=512, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_3'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=1024, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_4'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=512, kernel_size=1, pad=0, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_5'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=1024, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_6'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=1024, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	out_layer = 'conv6_7'
+	ConvBNUnitLayer(net, from_layer, out_layer, use_bn=True, use_relu=True, \
+		num_output=1024, kernel_size=3, pad=1, stride=1, use_scale=True, leaky=True)
+	from_layer = out_layer
+
+	return net

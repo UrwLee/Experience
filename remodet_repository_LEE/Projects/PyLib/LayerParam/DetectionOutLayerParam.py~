@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+import caffe
+from caffe import params as P
+from caffe import layers as L
+from caffe.proto import caffe_pb2
+from google.protobuf import text_format
+
+import os
+import sys
+
+def get_detection_out_param(num_classes=2,share_location=True, \
+                            background_label_id=0, \
+                            code_type=P.PriorBox.CENTER_SIZE, \
+                            variance_encoded_in_target=False, \
+                            conf_threshold=0.5, \
+                            nms_threshold=0.45, \
+                            boxsize_threshold=0.001, \
+                            top_k=30, \
+                            visualize=False, \
+                            visual_enable=[True], \
+                            display_maxsize=1000, line_width=4, \
+                            color=[[0,255,0],], \
+                            test_loss_output=True, \
+                            use_difficult_gt=False, \
+                            match_type=P.MultiBoxLoss.PER_PREDICTION, \
+                            overlap_threshold=0.5, \
+                            neg_overlap=0.5, \
+                            neg_pos_ratio=3, \
+                            loc_weight=1.0, \
+                            loc_loss_type=P.MultiBoxLoss.SMOOTH_L1, \
+                            conf_weight=1.0, \
+                            conf_loss_type=P.MultiBoxLoss.SOFTMAX):
+    return {
+        # 0-bg and 1-body
+        'num_classes': num_classes,
+        # all classes share the loc-boxes
+        'share_location': share_location,
+        # bg->0
+        'background_label_id': background_label_id,
+        # box-encoding: CENTER
+        'code_type': code_type,
+        # variance pre-encoding
+        'variance_encoded_in_target': variance_encoded_in_target,
+        # NMS params: conf and nms-iou
+        'conf_threshold_body': conf_threshold,
+        'nms_threshold_body': nms_threshold,
+        # size-filtering
+        'body_size_threshold': boxsize_threshold,
+        # keep maxmium objects
+        'top_k': top_k,
+        # visualize param
+        'visual_param': {
+                # enable or disable the visualize function
+                'visualize': visualize,
+                # visualize the body
+                'visual_body': visual_enable[0],
+                # image display size
+                'display_maxsize': display_maxsize,
+                # rectangle line width
+                'line_width': line_width,
+                # rectangle color
+                'color_param': {
+                    'body': {
+                        'bgr': color[0],
+                    }
+                }
+        },
+        # for test loss
+        'test_loss_output': test_loss_output,
+        'use_difficult_gt': use_difficult_gt,
+        'match_type': match_type,
+        'overlap_threshold': overlap_threshold,
+        'neg_overlap': neg_overlap,
+        'neg_pos_ratio': neg_pos_ratio,
+        'loc_weight': loc_weight,
+        'loc_loss_type': loc_loss_type,
+        'body_conf_weight': conf_weight,
+        'body_conf_loss_type': conf_loss_type,
+    }

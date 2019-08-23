@@ -1,0 +1,8 @@
+src/caffe/mask/dense_image_data_layer.cpp: In instantiation of ‘void caffe::DenseImageDataLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/dense_image_data_layer.cpp:276:1:   required from here
+src/caffe/mask/dense_image_data_layer.cpp:171:13: warning: unused variable ‘crop_size’ [-Wunused-variable]
+   const int crop_size = this->layer_param_.transform_param().crop_size();
+             ^
+src/caffe/mask/dense_image_data_layer.cpp: In instantiation of ‘void caffe::DenseImageDataLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/dense_image_data_layer.cpp:276:1:   required from here
+src/caffe/mask/dense_image_data_layer.cpp:171:13: warning: unused variable ‘crop_size’ [-Wunused-variable]

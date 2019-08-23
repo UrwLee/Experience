@@ -1,0 +1,1282 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W0408 20:41:57.213289 32675 _caffe.cpp:122] DEPRECATION WARNING - deprecated use of Python interface
+W0408 20:41:57.213313 32675 _caffe.cpp:123] Use this instead (with the named "weights" parameter):
+W0408 20:41:57.213316 32675 _caffe.cpp:125] Net('/home/remo/from_wdh/Det_CatDog/000MyDarkNet_cat_dog_A/Proto/train_see_mini.prototxt', 0, weights='/home/remo/from_wdh/Det_CatDog/DarkNet_cat_dog_A/Models/DarkNet_cat_dog_A_iter_260000.caffemodel')
+I0408 20:41:57.220515 32675 net.cpp:63] Initializing net from parameters: 
+name: "DET_CATDOG_test1"
+state {
+  phase: TRAIN
+  level: 0
+}
+layer {
+  name: "data"
+  type: "MinihandData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  minihand_transform_param {
+    do_flip: true
+    flip_prob: 0.5
+    resized_width: 512
+    resized_height: 288
+    save: false
+    save_path: "/home/remo/tmp"
+    cov_limits: 0.3
+    cov_limits: 0.5
+    cov_limits: 0.7
+    cov_limits: 0.9
+    dis_param {
+      brightness_prob: 0.3
+      brightness_delta: 20
+      contrast_prob: 0.3
+      contrast_lower: 0.5
+      contrast_upper: 1.5
+      hue_prob: 0.3
+      hue_delta: 18
+      saturation_prob: 0.3
+      saturation_lower: 0.5
+      saturation_upper: 1.5
+      random_order_prob: 0
+    }
+    flag_eqhist: false
+    sample_sixteennine: true
+    sample_ninesixteen: false
+    crop_max_area_scale: 8
+    crop_min_area_scale: 2
+    make_border: true
+    emit_coverage: 0.5
+  }
+  minihand_data_param {
+    shuffle: true
+    rand_skip: 0
+    batch_size: 1
+    mean_value: 104
+    mean_value: 117
+    mean_value: 123
+    xml_list_multiple: "/home/remo/Desktop/remo_cat_dog/Data_CatDog/train_xml.txt"
+    xml_root_multiple: "/home/remo/Desktop/remo_cat_dog/Data_CatDog/"
+  }
+}
+I0408 20:41:57.220559 32675 layer_factory.hpp:77] Creating layer data
+I0408 20:41:57.220592 32675 net.cpp:124] Creating Layer data
+I0408 20:41:57.220599 32675 net.cpp:554] data -> data
+I0408 20:41:57.220631 32675 net.cpp:554] data -> label
+I0408 20:41:57.220659 32675 minihand_data_layer.cpp:50] size of minihand_data_param.xml_list_multiple_size() 1
+I0408 20:41:57.220664 32675 minihand_data_layer.cpp:54] Opening file "/home/remo/Desktop/remo_cat_dog/Data_CatDog/train_xml.txt"
+I0408 20:41:57.220691 32675 minihand_data_layer.cpp:61] Finished Reading /home/remo/Desktop/remo_cat_dog/Data_CatDog/train_xml.txt
+I0408 20:41:57.220708 32675 minihand_data_layer.cpp:73] Shuffling data
+I0408 20:41:57.221058 32675 minihand_data_layer.cpp:78] A total of 3 images.
+I0408 20:41:57.601104 32675 minihand_data_layer.cpp:95] output data size: 1,3,288,512
+I0408 20:41:57.601164 32675 minihand_data_layer.cpp:103] output label size: 1,1,1,9
+I0408 20:41:57.603401 32675 net.cpp:207] Setting up data
+I0408 20:41:57.603436 32675 net.cpp:218] Top shape: 1 3 288 512 (442368)
+I0408 20:41:57.603441 32675 net.cpp:218] Top shape: 1 1 1 9 (9)
+I0408 20:41:57.603444 32675 net.cpp:229] Memory required for data: 1769508
+I0408 20:41:57.603449 32675 net.cpp:335] data does not need backward computation.
+I0408 20:41:57.603452 32675 net.cpp:393] This network produces output data
+I0408 20:41:57.603457 32675 net.cpp:393] This network produces output label
+I0408 20:41:57.603464 32675 net.cpp:413] Network initialization done.
+I0408 20:41:57.603533 32675 io.cpp:67] raw_input 0x55b37684a590
+I0408 20:41:57.619848 32675 io.cpp:69] success 1
+I0408 20:41:57.619870 32675 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: /home/remo/from_wdh/Det_CatDog/DarkNet_cat_dog_A/Models/DarkNet_cat_dog_A_iter_260000.caffemodel
+I0408 20:41:57.619890 32675 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
+I0408 20:41:57.619894 32675 net.cpp:976] Ignoring source layer data_data_0_split
+I0408 20:41:57.619897 32675 net.cpp:976] Ignoring source layer conv1
+I0408 20:41:57.619900 32675 net.cpp:976] Ignoring source layer conv1_bn
+I0408 20:41:57.619902 32675 net.cpp:976] Ignoring source layer conv1_scale
+I0408 20:41:57.619905 32675 net.cpp:976] Ignoring source layer conv1_relu
+I0408 20:41:57.619907 32675 net.cpp:976] Ignoring source layer pool1
+I0408 20:41:57.619910 32675 net.cpp:976] Ignoring source layer conv2
+I0408 20:41:57.619927 32675 net.cpp:976] Ignoring source layer conv2_bn
+I0408 20:41:57.619930 32675 net.cpp:976] Ignoring source layer conv2_scale
+I0408 20:41:57.619933 32675 net.cpp:976] Ignoring source layer conv2_relu
+I0408 20:41:57.619935 32675 net.cpp:976] Ignoring source layer pool2
+I0408 20:41:57.619938 32675 net.cpp:976] Ignoring source layer conv3_1
+I0408 20:41:57.619941 32675 net.cpp:976] Ignoring source layer conv3_1_bn
+I0408 20:41:57.619943 32675 net.cpp:976] Ignoring source layer conv3_1_scale
+I0408 20:41:57.619946 32675 net.cpp:976] Ignoring source layer conv3_1_relu
+I0408 20:41:57.619948 32675 net.cpp:976] Ignoring source layer conv3_2
+I0408 20:41:57.619951 32675 net.cpp:976] Ignoring source layer conv3_2_bn
+I0408 20:41:57.619954 32675 net.cpp:976] Ignoring source layer conv3_2_scale
+I0408 20:41:57.619957 32675 net.cpp:976] Ignoring source layer conv3_2_relu
+I0408 20:41:57.619959 32675 net.cpp:976] Ignoring source layer conv3_3
+I0408 20:41:57.619962 32675 net.cpp:976] Ignoring source layer conv3_3_bn
+I0408 20:41:57.619966 32675 net.cpp:976] Ignoring source layer conv3_3_scale
+I0408 20:41:57.619967 32675 net.cpp:976] Ignoring source layer conv3_3_relu
+I0408 20:41:57.619971 32675 net.cpp:976] Ignoring source layer pool3
+I0408 20:41:57.619973 32675 net.cpp:976] Ignoring source layer conv4_1
+I0408 20:41:57.619976 32675 net.cpp:976] Ignoring source layer conv4_1_bn
+I0408 20:41:57.619978 32675 net.cpp:976] Ignoring source layer conv4_1_scale
+I0408 20:41:57.619982 32675 net.cpp:976] Ignoring source layer conv4_1_relu
+I0408 20:41:57.619984 32675 net.cpp:976] Ignoring source layer conv4_2
+I0408 20:41:57.619987 32675 net.cpp:976] Ignoring source layer conv4_2_bn
+I0408 20:41:57.619989 32675 net.cpp:976] Ignoring source layer conv4_2_scale
+I0408 20:41:57.619992 32675 net.cpp:976] Ignoring source layer conv4_2_relu
+I0408 20:41:57.619995 32675 net.cpp:976] Ignoring source layer conv4_3
+I0408 20:41:57.619997 32675 net.cpp:976] Ignoring source layer conv4_3_bn
+I0408 20:41:57.620000 32675 net.cpp:976] Ignoring source layer conv4_3_scale
+I0408 20:41:57.620003 32675 net.cpp:976] Ignoring source layer conv4_3_relu
+I0408 20:41:57.620005 32675 net.cpp:976] Ignoring source layer conv4_3_conv4_3_relu_0_split
+I0408 20:41:57.620008 32675 net.cpp:976] Ignoring source layer pool4
+I0408 20:41:57.620012 32675 net.cpp:976] Ignoring source layer conv5_1
+I0408 20:41:57.620013 32675 net.cpp:976] Ignoring source layer conv5_1_bn
+I0408 20:41:57.620016 32675 net.cpp:976] Ignoring source layer conv5_1_scale
+I0408 20:41:57.620019 32675 net.cpp:976] Ignoring source layer conv5_1_relu
+I0408 20:41:57.620021 32675 net.cpp:976] Ignoring source layer conv5_2
+I0408 20:41:57.620025 32675 net.cpp:976] Ignoring source layer conv5_2_bn
+I0408 20:41:57.620028 32675 net.cpp:976] Ignoring source layer conv5_2_scale
+I0408 20:41:57.620031 32675 net.cpp:976] Ignoring source layer conv5_2_relu
+I0408 20:41:57.620033 32675 net.cpp:976] Ignoring source layer conv5_3
+I0408 20:41:57.620036 32675 net.cpp:976] Ignoring source layer conv5_3_bn
+I0408 20:41:57.620039 32675 net.cpp:976] Ignoring source layer conv5_3_scale
+I0408 20:41:57.620043 32675 net.cpp:976] Ignoring source layer conv5_3_relu
+I0408 20:41:57.620044 32675 net.cpp:976] Ignoring source layer conv5_4
+I0408 20:41:57.620048 32675 net.cpp:976] Ignoring source layer conv5_4_bn
+I0408 20:41:57.620050 32675 net.cpp:976] Ignoring source layer conv5_4_scale
+I0408 20:41:57.620052 32675 net.cpp:976] Ignoring source layer conv5_4_relu
+I0408 20:41:57.620055 32675 net.cpp:976] Ignoring source layer conv5_5
+I0408 20:41:57.620059 32675 net.cpp:976] Ignoring source layer conv5_5_bn
+I0408 20:41:57.620060 32675 net.cpp:976] Ignoring source layer conv5_5_scale
+I0408 20:41:57.620064 32675 net.cpp:976] Ignoring source layer conv5_5_relu
+I0408 20:41:57.620065 32675 net.cpp:976] Ignoring source layer conv5_5_conv5_5_relu_0_split
+I0408 20:41:57.620069 32675 net.cpp:976] Ignoring source layer pool5
+I0408 20:41:57.620071 32675 net.cpp:976] Ignoring source layer conv6_1_1
+I0408 20:41:57.620074 32675 net.cpp:976] Ignoring source layer conv6_1_1_relu
+I0408 20:41:57.620076 32675 net.cpp:976] Ignoring source layer conv6_2_1
+I0408 20:41:57.620079 32675 net.cpp:976] Ignoring source layer conv6_2_1_relu
+I0408 20:41:57.620081 32675 net.cpp:976] Ignoring source layer conv6_3_1
+I0408 20:41:57.620085 32675 net.cpp:976] Ignoring source layer conv6_3_1_relu
+I0408 20:41:57.620087 32675 net.cpp:976] Ignoring source layer conv6_4_1
+I0408 20:41:57.620090 32675 net.cpp:976] Ignoring source layer conv6_4_1_relu
+I0408 20:41:57.620093 32675 net.cpp:976] Ignoring source layer conv6_5_1
+I0408 20:41:57.620095 32675 net.cpp:976] Ignoring source layer conv6_5_1_relu
+I0408 20:41:57.620098 32675 net.cpp:976] Ignoring source layer featuremap3
+I0408 20:41:57.620101 32675 net.cpp:976] Ignoring source layer featuremap3_featuremap3_0_split
+I0408 20:41:57.620103 32675 net.cpp:976] Ignoring source layer featuremap3_Deconv
+I0408 20:41:57.620106 32675 net.cpp:976] Ignoring source layer conv5_5_addtop
+I0408 20:41:57.620108 32675 net.cpp:976] Ignoring source layer featuremap2
+I0408 20:41:57.620111 32675 net.cpp:976] Ignoring source layer featuremap2_relu
+I0408 20:41:57.620115 32675 net.cpp:976] Ignoring source layer featuremap2_featuremap2_relu_0_split
+I0408 20:41:57.620116 32675 net.cpp:976] Ignoring source layer featuremap2_Deconv
+I0408 20:41:57.620120 32675 net.cpp:976] Ignoring source layer conv4_3_addtop
+I0408 20:41:57.620122 32675 net.cpp:976] Ignoring source layer featuremap1
+I0408 20:41:57.620124 32675 net.cpp:976] Ignoring source layer featuremap1_relu
+I0408 20:41:57.620127 32675 net.cpp:976] Ignoring source layer featuremap1_1_inter_1
+I0408 20:41:57.620131 32675 net.cpp:976] Ignoring source layer featuremap1_1_inter_1_relu
+I0408 20:41:57.620132 32675 net.cpp:976] Ignoring source layer featuremap1_1_inter_2
+I0408 20:41:57.620136 32675 net.cpp:976] Ignoring source layer featuremap1_1_inter_2_relu
+I0408 20:41:57.620138 32675 net.cpp:976] Ignoring source layer featuremap1_1_inter_2_featuremap1_1_inter_2_relu_0_split
+I0408 20:41:57.620141 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_loc
+I0408 20:41:57.620143 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_loc_perm
+I0408 20:41:57.620146 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_loc_flat
+I0408 20:41:57.620149 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_conf
+I0408 20:41:57.620152 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_conf_perm
+I0408 20:41:57.620154 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_conf_flat
+I0408 20:41:57.620157 32675 net.cpp:976] Ignoring source layer featuremap1_1_mbox_priorbox
+I0408 20:41:57.620160 32675 net.cpp:976] Ignoring source layer featuremap2_1_inter_1
+I0408 20:41:57.620162 32675 net.cpp:976] Ignoring source layer featuremap2_1_inter_1_relu
+I0408 20:41:57.620165 32675 net.cpp:976] Ignoring source layer featuremap2_1_inter_2
+I0408 20:41:57.620168 32675 net.cpp:976] Ignoring source layer featuremap2_1_inter_2_relu
+I0408 20:41:57.620172 32675 net.cpp:976] Ignoring source layer featuremap2_1_inter_2_featuremap2_1_inter_2_relu_0_split
+I0408 20:41:57.620174 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_loc
+I0408 20:41:57.620177 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_loc_perm
+I0408 20:41:57.620179 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_loc_flat
+I0408 20:41:57.620182 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_conf
+I0408 20:41:57.620185 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_conf_perm
+I0408 20:41:57.620187 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_conf_flat
+I0408 20:41:57.620190 32675 net.cpp:976] Ignoring source layer featuremap2_1_mbox_priorbox
+I0408 20:41:57.620193 32675 net.cpp:976] Ignoring source layer featuremap3_1_inter_1
+I0408 20:41:57.620196 32675 net.cpp:976] Ignoring source layer featuremap3_1_inter_1_relu
+I0408 20:41:57.620198 32675 net.cpp:976] Ignoring source layer featuremap3_1_inter_2
+I0408 20:41:57.620201 32675 net.cpp:976] Ignoring source layer featuremap3_1_inter_2_relu
+I0408 20:41:57.620204 32675 net.cpp:976] Ignoring source layer featuremap3_1_inter_2_featuremap3_1_inter_2_relu_0_split
+I0408 20:41:57.620206 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_loc
+I0408 20:41:57.620209 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_loc_perm
+I0408 20:41:57.620211 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_loc_flat
+I0408 20:41:57.620214 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_conf
+I0408 20:41:57.620218 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_conf_perm
+I0408 20:41:57.620219 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_conf_flat
+I0408 20:41:57.620223 32675 net.cpp:976] Ignoring source layer featuremap3_1_mbox_priorbox
+I0408 20:41:57.620224 32675 net.cpp:976] Ignoring source layer mbox_1_loc
+I0408 20:41:57.620227 32675 net.cpp:976] Ignoring source layer mbox_1_conf
+I0408 20:41:57.620230 32675 net.cpp:976] Ignoring source layer mbox_1_priorbox
+I0408 20:41:57.620232 32675 net.cpp:976] Ignoring source layer mbox_1_loss
+GLib-GIO-Message: 20:41:57.644: Using the 'memory' GSettings backend.  Your settings will not be saved or shared with other applications.
+init done 
+opengl support available 
+I0408 20:41:57.678453 32675 blocking_queue.cpp:51] Data layer prefetch queue empty
+['./', '/home/remo/Desktop/remodet_repository_llp/python', '/home/remo/Desktop/remo_cat_dog/check_data_layer', '/home/remo/caffe-master/python', '/home/remo/anaconda2/lib/python27.zip', '/home/remo/anaconda2/lib/python2.7', '/home/remo/anaconda2/lib/python2.7/plat-linux2', '/home/remo/anaconda2/lib/python2.7/lib-tk', '/home/remo/anaconda2/lib/python2.7/lib-old', '/home/remo/anaconda2/lib/python2.7/lib-dynload', '/home/remo/anaconda2/lib/python2.7/site-packages', '/home/remo/anaconda2/lib/python2.7/site-packages/Sphinx-1.4.1-py2.7.egg', '/home/remo/from_wdh/remodet_repository_DJ/python']
+temp:836.297
+area_scale:2.4672
+rw:2048 rh:1152
+dw:-1024 dh:-469
+dice:0.840188
+xoffs:-860.352 yoffs:-394.048
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-860.352 -394.048 1187.65 757.952
+iou:1
+dice:0.394383
+xoffs:-403.848 yoffs:-184.966
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-403.848 -184.966 1644.15 967.034
+iou:1
+dice:0.783099
+xoffs:-801.894 yoffs:-367.274
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-801.894 -367.274 1246.11 784.726
+iou:1
+dice:0.79844
+xoffs:-817.603 yoffs:-374.468
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-817.603 -374.468 1230.4 777.532
+iou:1
+raw_crop_roi:-403.848 -184.966 1644.15 -184.966
+cov:1
+crop_roi:-403.848 -184.966 1644.15 -184.966
+pxmin~pymax:0 0 1024 683
+I0408 20:41:57.682996 32693 minihand_sample_transformer.cpp:80] 4<---scale_w  scale_h-->4
+I0408 20:41:57.683509 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->3
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 2, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:2.25542
+rw:1504 rh:846
+dw:-480 dh:-410
+dice:0.335223
+xoffs:-160.907 yoffs:-137.441
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-160.907 -137.441 1343.09 708.559
+iou:1
+dice:0.76823
+xoffs:-368.75 yoffs:-314.974
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-368.75 -314.974 1135.25 531.026
+iou:1
+dice:0.277775
+xoffs:-133.332 yoffs:-113.888
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-133.332 -113.888 1370.67 732.112
+iou:1
+dice:0.55397
+xoffs:-265.906 yoffs:-227.128
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-265.906 -227.128 1238.09 618.872
+iou:1
+raw_crop_roi:-133.332 -113.888 1370.67 -113.888
+cov:1
+crop_roi:-133.332 -113.888 1370.67 -113.888
+pxmin~pymax:0 0 1024 436
+I0408 20:41:57.701557 32693 minihand_sample_transformer.cpp:80] 2.9375<---scale_w  scale_h-->2.9375
+I0408 20:41:57.702049 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->3
+num_instance:1
+temp:847.849
+area_scale:5.29813
+rw:4480 rh:2520
+dw:-3778 dh:-1496
+dice:0.364784
+xoffs:-1378.16 yoffs:-545.718
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1378.16 -545.718 3101.84 1974.28
+iou:1
+dice:0.513401
+xoffs:-1939.63 yoffs:-768.048
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1939.63 -768.048 2540.37 1751.95
+iou:1
+dice:0.95223
+xoffs:-3597.52 yoffs:-1424.54
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-3597.52 -1424.54 882.476 1095.46
+iou:1
+dice:0.916195
+xoffs:-3461.39 yoffs:-1370.63
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-3461.39 -1370.63 1018.61 1149.37
+iou:1
+raw_crop_roi:-1378.16 -545.718 3101.84 -545.718
+cov:1
+crop_roi:-1378.16 -545.718 3101.84 -545.718
+pxmin~pymax:0 0 702 1024
+I0408 20:41:57.719517 32693 minihand_sample_transformer.cpp:80] 8.75<---scale_w  scale_h-->8.75
+I0408 20:41:57.719702 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->7
+num_instance:1
+num_box is 2
+temp:847.849
+area_scale:5.00054
+rw:4224 rh:2376
+dw:-3522 dh:-1352
+dice:0.141603
+xoffs:-498.724 yoffs:-191.447
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-498.724 -191.447 3725.28 2184.55
+iou:1
+dice:0.606969
+xoffs:-2137.74 yoffs:-820.622
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2137.74 -820.622 2086.26 1555.38
+iou:1
+dice:0.0163006
+xoffs:-57.4106 yoffs:-22.0384
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-57.4106 -22.0384 4166.59 2353.96
+iou:1
+dice:0.242887
+xoffs:-855.447 yoffs:-328.383
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-855.447 -328.383 3368.55 2047.62
+iou:1
+raw_crop_roi:-855.447 -328.383 3368.55 -328.383
+cov:1
+crop_roi:-855.447 -328.383 3368.55 -328.383
+pxmin~pymax:0 0 702 1024
+I0408 20:41:57.728188 32693 minihand_sample_transformer.cpp:80] 8.25<---scale_w  scale_h-->8.25
+I0408 20:41:57.728400 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->7
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 4, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:2.93026
+rw:1952 rh:1098
+dw:-928 dh:-662
+dice:0.156679
+xoffs:-145.398 yoffs:-103.722
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-145.398 -103.722 1806.6 994.278
+iou:1
+dice:0.400944
+xoffs:-372.076 yoffs:-265.425
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-372.076 -265.425 1579.92 832.575
+iou:1
+dice:0.12979
+xoffs:-120.446 yoffs:-85.9213
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-120.446 -85.9213 1831.55 1012.08
+iou:1
+dice:0.108809
+xoffs:-100.975 yoffs:-72.0314
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-100.975 -72.0314 1851.03 1025.97
+iou:1
+raw_crop_roi:-100.975 -72.0314 1851.03 -72.0314
+cov:1
+crop_roi:-100.975 -72.0314 1851.03 -72.0314
+pxmin~pymax:0 0 1024 436
+I0408 20:41:58.714992 32693 minihand_sample_transformer.cpp:80] 3.8125<---scale_w  scale_h-->3.8125
+I0408 20:41:58.715353 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->3
+num_instance:1
+num_box is 4
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 14, 9))
+(3, 288, 512)
+num_box is 14
+temp:836.297
+area_scale:7.5385
+rw:6304 rh:3546
+dw:-5280 dh:-2863
+dice:0.512932
+xoffs:-2708.28 yoffs:-1468.53
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-2708.28 -1468.53 3595.72 2077.47
+iou:1
+dice:0.839112
+xoffs:-4430.51 yoffs:-2402.38
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-4430.51 -2402.38 1873.49 1143.62
+iou:1
+dice:0.61264
+xoffs:-3234.74 yoffs:-1753.99
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-3234.74 -1753.99 3069.26 1792.01
+iou:1
+dice:0.296032
+xoffs:-1563.05 yoffs:-847.539
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1563.05 -847.539 4740.95 2698.46
+iou:1
+raw_crop_roi:-4430.51 -2402.38 1873.49 -2402.38
+cov:1
+crop_roi:-4430.51 -2402.38 1873.49 -2402.38
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.226658 32693 minihand_sample_transformer.cpp:80] 12.3125<---scale_w  scale_h-->12.3125
+I0408 20:41:59.226821 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->7
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 12, 9))
+(3, 288, 512)
+num_box is 12
+temp:668.18
+area_scale:5.72226
+rw:3808 rh:2142
+dw:-2784 dh:-1706
+dice:0.493583
+xoffs:-1374.14 yoffs:-842.053
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-1374.14 -842.053 2433.86 1299.95
+iou:1
+dice:0.972775
+xoffs:-2708.21 yoffs:-1659.55
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-2708.21 -1659.55 1099.79 482.446
+iou:1
+dice:0.292517
+xoffs:-814.367 yoffs:-499.034
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-814.367 -499.034 2993.63 1642.97
+iou:1
+dice:0.771358
+xoffs:-2147.46 yoffs:-1315.94
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-2147.46 -1315.94 1660.54 826.064
+iou:1
+raw_crop_roi:-2708.21 -1659.55 1099.79 -1659.55
+cov:1
+crop_roi:-2708.21 -1659.55 1099.79 -1659.55
+pxmin~pymax:0 0 1024 436
+I0408 20:41:59.256713 32693 minihand_sample_transformer.cpp:80] 7.4375<---scale_w  scale_h-->7.4375
+I0408 20:41:59.256876 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->5
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 4, 9))
+(3, 288, 512)
+num_box is 4
+temp:836.297
+area_scale:2.32693
+rw:1936 rh:1089
+dw:-912 dh:-406
+dice:0.400229
+xoffs:-365.009 yoffs:-162.493
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-365.009 -162.493 1570.99 926.507
+iou:1
+dice:0.891529
+xoffs:-813.075 yoffs:-361.961
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-813.075 -361.961 1122.93 727.039
+iou:1
+dice:0.283315
+xoffs:-258.383 yoffs:-115.026
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-258.383 -115.026 1677.62 973.974
+iou:1
+dice:0.352458
+xoffs:-321.442 yoffs:-143.098
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-321.442 -143.098 1614.56 945.902
+iou:1
+raw_crop_roi:-258.383 -115.026 1677.62 -115.026
+cov:1
+crop_roi:-258.383 -115.026 1677.62 -115.026
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.329483 32693 minihand_sample_transformer.cpp:80] 3.78125<---scale_w  scale_h-->3.78125
+I0408 20:41:59.330070 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->3
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 36, 9))
+(3, 288, 512)
+num_box is 36
+temp:847.849
+area_scale:2.11043
+rw:1776 rh:999
+dw:-1074 dh:25
+dice:0.0697553
+xoffs:-74.9172 yoffs:1.74388
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-74.9172 1.74388 1701.08 1000.74
+iou:1
+dice:0.949327
+xoffs:-1019.58 yoffs:23.7332
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1019.58 23.7332 756.423 1022.73
+iou:1
+dice:0.525995
+xoffs:-564.919 yoffs:13.1499
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-564.919 13.1499 1211.08 1012.15
+iou:1
+dice:0.0860558
+xoffs:-92.424 yoffs:2.1514
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-92.424 2.1514 1683.58 1001.15
+iou:1
+raw_crop_roi:-92.424 2.1514 1683.58 2.1514
+cov:1
+crop_roi:-92.424 2.1514 1683.58 2.1514
+pxmin~pymax:0 2.1514 702 1001.15
+I0408 20:41:59.390558 32693 minihand_sample_transformer.cpp:80] 3.46875<---scale_w  scale_h-->3.46875
+I0408 20:41:59.391157 32693 minihand_sample_transformer.cpp:110] 1<--num_h  num_w-->4
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 15, 9))
+(3, 288, 512)
+num_box is 15
+temp:668.18
+area_scale:2.96943
+rw:1984 rh:1116
+dw:-960 dh:-680
+dice:0.890233
+xoffs:-854.623 yoffs:-605.358
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-854.623 -605.358 1129.38 510.642
+iou:1
+dice:0.348893
+xoffs:-334.937 yoffs:-237.247
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-334.937 -237.247 1649.06 878.753
+iou:1
+dice:0.0641713
+xoffs:-61.6045 yoffs:-43.6365
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-61.6045 -43.6365 1922.4 1072.36
+iou:1
+dice:0.020023
+xoffs:-19.2221 yoffs:-13.6157
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-19.2221 -13.6157 1964.78 1102.38
+iou:1
+raw_crop_roi:-854.623 -605.358 1129.38 -605.358
+cov:1
+crop_roi:-854.623 -605.358 1129.38 -605.358
+pxmin~pymax:0 0 1024 436
+I0408 20:41:59.408653 32693 minihand_sample_transformer.cpp:80] 3.875<---scale_w  scale_h-->3.875
+I0408 20:41:59.409008 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->3
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 2, 9))
+(3, 288, 512)
+num_box is 2
+temp:847.849
+area_scale:4.32084
+rw:3648 rh:2052
+dw:-2946 dh:-1028
+dice:0.23828
+xoffs:-701.973 yoffs:-244.952
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-701.973 -244.952 2946.03 1807.05
+iou:1
+dice:0.970634
+xoffs:-2859.49 yoffs:-997.812
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2859.49 -997.812 788.512 1054.19
+iou:1
+dice:0.902208
+xoffs:-2657.91 yoffs:-927.47
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2657.91 -927.47 990.095 1124.53
+iou:1
+dice:0.85092
+xoffs:-2506.81 yoffs:-874.746
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2506.81 -874.746 1141.19 1177.25
+iou:1
+raw_crop_roi:-701.973 -244.952 2946.03 -244.952
+cov:1
+crop_roi:-701.973 -244.952 2946.03 -244.952
+pxmin~pymax:0 0 702 1024
+I0408 20:41:59.457990 32693 minihand_sample_transformer.cpp:80] 7.125<---scale_w  scale_h-->7.125
+I0408 20:41:59.458192 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->6
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 3, 9))
+(3, 288, 512)
+num_box is 3
+temp:836.297
+area_scale:4.0792
+rw:3408 rh:1917
+dw:-2384 dh:-1234
+dice:0.375207
+xoffs:-894.493 yoffs:-463.005
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-894.493 -463.005 2513.51 1453.99
+iou:1
+dice:0.760249
+xoffs:-1812.43 yoffs:-938.147
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1812.43 -938.147 1595.57 978.853
+iou:1
+dice:0.512535
+xoffs:-1221.88 yoffs:-632.469
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1221.88 -632.469 2186.12 1284.53
+iou:1
+dice:0.667724
+xoffs:-1591.85 yoffs:-823.971
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1591.85 -823.971 1816.15 1093.03
+iou:1
+raw_crop_roi:-894.493 -463.005 2513.51 -463.005
+cov:1
+crop_roi:-894.493 -463.005 2513.51 -463.005
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.515342 32693 minihand_sample_transformer.cpp:80] 6.65625<---scale_w  scale_h-->6.65625
+I0408 20:41:59.515686 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->4
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 2, 9))
+(3, 288, 512)
+num_box is 2
+temp:847.849
+area_scale:3.78164
+rw:3200 rh:1800
+dw:-2498 dh:-776
+dice:0.437638
+xoffs:-1093.22 yoffs:-339.607
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1093.22 -339.607 2106.78 1460.39
+iou:1
+dice:0.931835
+xoffs:-2327.72 yoffs:-723.104
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2327.72 -723.104 872.276 1076.9
+iou:1
+dice:0.93081
+xoffs:-2325.16 yoffs:-722.308
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2325.16 -722.308 874.837 1077.69
+iou:1
+dice:0.720952
+xoffs:-1800.94 yoffs:-559.459
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1800.94 -559.459 1399.06 1240.54
+iou:1
+raw_crop_roi:-2325.16 -722.308 874.837 -722.308
+cov:1
+crop_roi:-2325.16 -722.308 874.837 -722.308
+pxmin~pymax:0 0 702 1024
+I0408 20:41:59.575049 32693 minihand_sample_transformer.cpp:80] 6.25<---scale_w  scale_h-->6.25
+I0408 20:41:59.575989 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->6
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 10, 9))
+(3, 288, 512)
+num_box is 10
+temp:836.297
+area_scale:4.87705
+rw:4064 rh:2286
+dw:-3040 dh:-1603
+dice:0.639979
+xoffs:-1945.54 yoffs:-1025.89
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1945.54 -1025.89 2118.46 1260.11
+iou:1
+dice:0.354049
+xoffs:-1076.31 yoffs:-567.54
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1076.31 -567.54 2987.69 1718.46
+iou:1
+dice:0.687861
+xoffs:-2091.1 yoffs:-1102.64
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-2091.1 -1102.64 1972.9 1183.36
+iou:1
+dice:0.165974
+xoffs:-504.561 yoffs:-266.057
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-504.561 -266.057 3559.44 2019.94
+iou:1
+raw_crop_roi:-1945.54 -1025.89 2118.46 -1025.89
+cov:1
+crop_roi:-1945.54 -1025.89 2118.46 -1025.89
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.614136 32693 minihand_sample_transformer.cpp:80] 7.9375<---scale_w  scale_h-->7.9375
+I0408 20:41:59.614368 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->5
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 11, 9))
+(3, 288, 512)
+num_box is 11
+temp:668.18
+area_scale:2.65664
+rw:1760 rh:990
+dw:-736 dh:-554
+dice:0.829201
+xoffs:-610.292 yoffs:-459.377
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-610.292 -459.377 1149.71 530.623
+iou:1
+dice:0.330337
+xoffs:-243.128 yoffs:-183.007
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-243.128 -183.007 1516.87 806.993
+iou:1
+dice:0.228968
+xoffs:-168.521 yoffs:-126.848
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-168.521 -126.848 1591.48 863.152
+iou:1
+dice:0.893372
+xoffs:-657.522 yoffs:-494.928
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-657.522 -494.928 1102.48 495.072
+iou:1
+raw_crop_roi:-168.521 -126.848 1591.48 -126.848
+cov:1
+crop_roi:-168.521 -126.848 1591.48 -126.848
+pxmin~pymax:0 0 1024 436
+I0408 20:41:59.659725 32693 minihand_sample_transformer.cpp:80] 3.4375<---scale_w  scale_h-->3.4375
+I0408 20:41:59.660148 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->3
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 8, 9))
+(3, 288, 512)
+num_box is 8
+temp:668.18
+area_scale:5.37651
+rw:3584 rh:2016
+dw:-2560 dh:-1580
+dice:0.956468
+xoffs:-2448.56 yoffs:-1511.22
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-2448.56 -1511.22 1135.44 504.78
+iou:1
+dice:0.58864
+xoffs:-1506.92 yoffs:-930.051
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-1506.92 -930.051 2077.08 1085.95
+iou:1
+dice:0.657304
+xoffs:-1682.7 yoffs:-1038.54
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-1682.7 -1038.54 1901.3 977.46
+iou:1
+dice:0.858676
+xoffs:-2198.21 yoffs:-1356.71
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-2198.21 -1356.71 1385.79 659.291
+iou:1
+raw_crop_roi:-2198.21 -1356.71 1385.79 -1356.71
+cov:1
+crop_roi:-2198.21 -1356.71 1385.79 -1356.71
+pxmin~pymax:0 0 1024 436
+I0408 20:41:59.708544 32693 minihand_sample_transformer.cpp:80] 7<---scale_w  scale_h-->7
+I0408 20:41:59.708703 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->5
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 15, 9))
+(3, 288, 512)
+num_box is 15
+temp:847.849
+area_scale:4.73853
+rw:4016 rh:2259
+dw:-3314 dh:-1235
+dice:0.398437
+xoffs:-1320.42 yoffs:-492.069
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1320.42 -492.069 2695.58 1766.93
+iou:1
+dice:0.814767
+xoffs:-2700.14 yoffs:-1006.24
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2700.14 -1006.24 1315.86 1252.76
+iou:1
+dice:0.684219
+xoffs:-2267.5 yoffs:-845.01
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2267.5 -845.01 1748.5 1413.99
+iou:1
+dice:0.910972
+xoffs:-3018.96 yoffs:-1125.05
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-3018.96 -1125.05 997.039 1133.95
+iou:1
+raw_crop_roi:-3018.96 -1125.05 997.039 -1125.05
+cov:1
+crop_roi:-3018.96 -1125.05 997.039 -1125.05
+pxmin~pymax:0 0 702 1024
+I0408 20:41:59.758594 32693 minihand_sample_transformer.cpp:80] 7.84375<---scale_w  scale_h-->7.84375
+I0408 20:41:59.758816 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->7
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 4, 9))
+(3, 288, 512)
+num_box is 4
+temp:836.297
+area_scale:6.36405
+rw:5312 rh:2988
+dw:-4288 dh:-2305
+dice:0.950252
+xoffs:-4074.68 yoffs:-2190.33
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-4074.68 -2190.33 1237.32 797.668
+iou:1
+dice:0.920128
+xoffs:-3945.51 yoffs:-2120.9
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-3945.51 -2120.9 1366.49 867.104
+iou:1
+dice:0.14766
+xoffs:-633.166 yoffs:-340.356
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-633.166 -340.356 4678.83 2647.64
+iou:1
+dice:0.881062
+xoffs:-3777.99 yoffs:-2030.85
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-3777.99 -2030.85 1534.01 957.152
+iou:1
+raw_crop_roi:-3945.51 -2120.9 1366.49 -2120.9
+cov:1
+crop_roi:-3945.51 -2120.9 1366.49 -2120.9
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.830658 32693 minihand_sample_transformer.cpp:80] 10.375<---scale_w  scale_h-->10.375
+I0408 20:41:59.830868 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->6
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 20, 9))
+(3, 288, 512)
+num_box is 20
+temp:836.297
+area_scale:6.9518
+rw:5808 rh:3267
+dw:-4784 dh:-2584
+dice:0.619596
+xoffs:-2964.15 yoffs:-1601.04
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-2964.15 -1601.04 2843.85 1665.96
+iou:1
+dice:0.281059
+xoffs:-1344.59 yoffs:-726.258
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1344.59 -726.258 4463.41 2540.74
+iou:1
+dice:0.786002
+xoffs:-3760.23 yoffs:-2031.03
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-3760.23 -2031.03 2047.77 1235.97
+iou:1
+dice:0.307458
+xoffs:-1470.88 yoffs:-794.471
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1470.88 -794.471 4337.12 2472.53
+iou:1
+raw_crop_roi:-1344.59 -726.258 4463.41 -726.258
+cov:1
+crop_roi:-1344.59 -726.258 4463.41 -726.258
+pxmin~pymax:0 0 1024 683
+I0408 20:41:59.880947 32693 minihand_sample_transformer.cpp:80] 11.3438<---scale_w  scale_h-->11.3438
+I0408 20:41:59.881155 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->7
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 12, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:3.9702
+rw:2640 rh:1485
+dw:-1616 dh:-1049
+dice:0.187533
+xoffs:-303.053 yoffs:-196.722
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-303.053 -196.722 2336.95 1288.28
+iou:1
+dice:0.276235
+xoffs:-446.395 yoffs:-289.77
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-446.395 -289.77 2193.6 1195.23
+iou:1
+dice:0.556444
+xoffs:-899.213 yoffs:-583.709
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-899.213 -583.709 1740.79 901.291
+iou:1
+dice:0.416501
+xoffs:-673.066 yoffs:-436.91
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-673.066 -436.91 1966.93 1048.09
+iou:1
+raw_crop_roi:-303.053 -196.722 2336.95 -196.722
+cov:1
+crop_roi:-303.053 -196.722 2336.95 -196.722
+pxmin~pymax:0 0 1024 436
+I0408 20:42:00.458263 32693 minihand_sample_transformer.cpp:80] 5.15625<---scale_w  scale_h-->5.15625
+I0408 20:42:00.458600 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->4
+num_instance:1
+num_box is 12
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 20, 9))
+(3, 288, 512)
+temp:847.849
+area_scale:6.82764
+rw:5776 rh:3249
+dw:-5074 dh:-2225
+dice:0.103171
+xoffs:-523.491 yoffs:-229.556
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-523.491 -229.556 5252.51 3019.44
+iou:1
+dice:0.126075
+xoffs:-639.706 yoffs:-280.518
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-639.706 -280.518 5136.29 2968.48
+iou:1
+dice:0.495444
+xoffs:-2513.88 yoffs:-1102.36
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2513.88 -1102.36 3262.12 2146.64
+iou:1
+dice:0.760475
+xoffs:-3858.65 yoffs:-1692.06
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-3858.65 -1692.06 1917.35 1556.94
+iou:1
+raw_crop_roi:-639.706 -280.518 5136.29 -280.518
+cov:1
+crop_roi:-639.706 -280.518 5136.29 -280.518
+pxmin~pymax:0 0 702 1024
+I0408 20:42:00.910569 32693 minihand_sample_transformer.cpp:80] 11.2812<---scale_w  scale_h-->11.2812
+I0408 20:42:00.911016 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->9
+num_instance:1
+num_box is 20
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 25, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:7.64424
+rw:5104 rh:2871
+dw:-4080 dh:-2435
+dice:0.684445
+xoffs:-2792.54 yoffs:-1666.62
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-2792.54 -1666.62 2311.46 1204.38
+iou:1
+dice:0.383188
+xoffs:-1563.41 yoffs:-933.064
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-1563.41 -933.064 3540.59 1937.94
+iou:1
+dice:0.749771
+xoffs:-3059.07 yoffs:-1825.69
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-3059.07 -1825.69 2044.93 1045.31
+iou:1
+dice:0.368664
+xoffs:-1504.15 yoffs:-897.696
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-1504.15 -897.696 3599.85 1973.3
+iou:1
+raw_crop_roi:-1504.15 -897.696 3599.85 -897.696
+cov:1
+crop_roi:-1504.15 -897.696 3599.85 -897.696
+pxmin~pymax:0 0 1024 436
+I0408 20:42:01.527253 32693 minihand_sample_transformer.cpp:80] 9.96875<---scale_w  scale_h-->9.96875
+I0408 20:42:01.527382 32693 minihand_sample_transformer.cpp:110] 8<--num_h  num_w-->6
+num_instance:1
+num_box is 25
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 9, 9))
+(3, 288, 512)
+num_box is 9
+temp:847.849
+area_scale:3.516
+rw:2976 rh:1674
+dw:-2274 dh:-650
+dice:0.584489
+xoffs:-1329.13 yoffs:-379.918
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1329.13 -379.918 1646.87 1294.08
+iou:1
+dice:0.244413
+xoffs:-555.795 yoffs:-158.868
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-555.795 -158.868 2420.21 1515.13
+iou:1
+dice:0.15239
+xoffs:-346.534 yoffs:-99.0534
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-346.534 -99.0534 2629.47 1574.95
+iou:1
+dice:0.732149
+xoffs:-1664.91 yoffs:-475.897
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1664.91 -475.897 1311.09 1198.1
+iou:1
+raw_crop_roi:-346.534 -99.0534 2629.47 -99.0534
+cov:1
+crop_roi:-346.534 -99.0534 2629.47 -99.0534
+pxmin~pymax:0 0 702 1024
+I0408 20:42:05.646462 32693 minihand_sample_transformer.cpp:80] 5.8125<---scale_w  scale_h-->5.8125
+I0408 20:42:05.646767 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->5
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 24, 9))
+(3, 288, 512)
+temp:836.297
+area_scale:3.03308
+rw:2528 rh:1422
+dw:-1504 dh:-739
+dice:0.164102
+xoffs:-246.809 yoffs:-121.271
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-246.809 -121.271 2281.19 1300.73
+iou:1
+dice:0.745071
+xoffs:-1120.59 yoffs:-550.608
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1120.59 -550.608 1407.41 871.392
+iou:1
+dice:0.0745298
+xoffs:-112.093 yoffs:-55.0775
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-112.093 -55.0775 2415.91 1366.92
+iou:1
+dice:0.950104
+xoffs:-1428.96 yoffs:-702.127
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1428.96 -702.127 1099.04 719.873
+iou:1
+raw_crop_roi:-246.809 -121.271 2281.19 -121.271
+cov:1
+crop_roi:-246.809 -121.271 2281.19 -121.271
+pxmin~pymax:0 0 1024 683
+I0408 20:42:07.823031 32693 minihand_sample_transformer.cpp:80] 4.9375<---scale_w  scale_h-->4.9375
+I0408 20:42:07.823426 32693 minihand_sample_transformer.cpp:110] 3<--num_h  num_w-->4
+num_instance:1
+num_box is 24
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 35, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:3.06382
+rw:2032 rh:1143
+dw:-1008 dh:-707
+dice:0.176211
+xoffs:-177.62 yoffs:-124.581
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-177.62 -124.581 1854.38 1018.42
+iou:1
+dice:0.240062
+xoffs:-241.983 yoffs:-169.724
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-241.983 -169.724 1790.02 973.276
+iou:1
+dice:0.797798
+xoffs:-804.18 yoffs:-564.043
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-804.18 -564.043 1227.82 578.957
+iou:1
+dice:0.732654
+xoffs:-738.516 yoffs:-517.987
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-738.516 -517.987 1293.48 625.013
+iou:1
+raw_crop_roi:-177.62 -124.581 1854.38 -124.581
+cov:1
+crop_roi:-177.62 -124.581 1854.38 -124.581
+pxmin~pymax:0 0 1024 436
+I0408 20:42:08.434785 32693 minihand_sample_transformer.cpp:80] 3.96875<---scale_w  scale_h-->3.96875
+I0408 20:42:08.435077 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->3
+num_instance:1
+num_box is 35
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 8, 9))
+(3, 288, 512)
+num_box is 8
+temp:847.849
+area_scale:7.16318
+rw:6064 rh:3411
+dw:-5362 dh:-2387
+dice:0.639458
+xoffs:-3428.78 yoffs:-1526.39
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-3428.78 -1526.39 2635.22 1884.61
+iou:1
+dice:0.759735
+xoffs:-4073.7 yoffs:-1813.49
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-4073.7 -1813.49 1990.3 1597.51
+iou:1
+dice:0.0934805
+xoffs:-501.242 yoffs:-223.138
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-501.242 -223.138 5562.76 3187.86
+iou:1
+dice:0.134902
+xoffs:-723.347 yoffs:-322.012
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-723.347 -322.012 5340.65 3088.99
+iou:1
+raw_crop_roi:-501.242 -223.138 5562.76 -223.138
+cov:1
+crop_roi:-501.242 -223.138 5562.76 -223.138
+pxmin~pymax:0 0 702 1024
+I0408 20:43:26.952610 32693 minihand_sample_transformer.cpp:80] 11.8438<---scale_w  scale_h-->11.8438
+I0408 20:43:26.952759 32693 minihand_sample_transformer.cpp:110] 5<--num_h  num_w-->9
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 4, 9))
+(3, 288, 512)
+num_box is 4
+temp:836.297
+area_scale:4.17835
+rw:3488 rh:1962
+dw:-2464 dh:-1279
+dice:0.0699064
+xoffs:-172.249 yoffs:-89.4103
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-172.249 -89.4103 3315.75 1872.59
+iou:1
+dice:0.204655
+xoffs:-504.27 yoffs:-261.754
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-504.27 -261.754 2983.73 1700.25
+iou:1
+dice:0.46142
+xoffs:-1136.94 yoffs:-590.157
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1136.94 -590.157 2351.06 1371.84
+iou:1
+dice:0.819677
+xoffs:-2019.68 yoffs:-1048.37
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-2019.68 -1048.37 1468.32 913.633
+iou:1
+raw_crop_roi:-2019.68 -1048.37 1468.32 -1048.37
+cov:1
+crop_roi:-2019.68 -1048.37 1468.32 -1048.37
+pxmin~pymax:0 0 1024 683
+I0408 20:43:27.447088 32693 minihand_sample_transformer.cpp:80] 6.8125<---scale_w  scale_h-->6.8125
+I0408 20:43:27.448144 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->4
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 4, 9))
+(3, 288, 512)
+temp:668.18
+area_scale:7.08391
+rw:4720 rh:2655
+dw:-3696 dh:-2219
+dice:0.0519388
+xoffs:-191.966 yoffs:-115.252
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-191.966 -115.252 4528.03 2539.75
+iou:1
+dice:0.157807
+xoffs:-583.255 yoffs:-350.174
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-583.255 -350.174 4136.75 2304.83
+iou:1
+dice:0.999994
+xoffs:-3695.98 yoffs:-2218.99
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-3695.98 -2218.99 1024.02 436.014
+iou:1
+dice:0.204329
+xoffs:-755.199 yoffs:-453.405
+box.x1_x2_y1_y2:68 204 175 204
+new_x1_x2_y1_y2:-755.199 -453.405 3964.8 2201.59
+iou:1
+raw_crop_roi:-583.255 -350.174 4136.75 -350.174
+cov:1
+crop_roi:-583.255 -350.174 4136.75 -350.174
+pxmin~pymax:0 0 1024 436
+I0408 20:43:28.726770 32693 minihand_sample_transformer.cpp:80] 9.21875<---scale_w  scale_h-->9.21875
+I0408 20:43:28.726905 32693 minihand_sample_transformer.cpp:110] 7<--num_h  num_w-->6
+num_instance:1
+num_box is 4
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 27, 9))
+(3, 288, 512)
+temp:836.297
+area_scale:7.56573
+rw:6320 rh:3555
+dw:-5296 dh:-2872
+dice:0.997799
+xoffs:-5284.34 yoffs:-2865.68
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-5284.34 -2865.68 1035.66 689.321
+iou:1
+dice:0.0540576
+xoffs:-286.289 yoffs:-155.253
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-286.289 -155.253 6033.71 3399.75
+iou:1
+dice:0.87054
+xoffs:-4610.38 yoffs:-2500.19
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-4610.38 -2500.19 1709.62 1054.81
+iou:1
+dice:0.0723288
+xoffs:-383.053 yoffs:-207.728
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-383.053 -207.728 5936.95 3347.27
+iou:1
+raw_crop_roi:-383.053 -207.728 5936.95 -207.728
+cov:1
+crop_roi:-383.053 -207.728 5936.95 -207.728
+pxmin~pymax:0 0 1024 683
+I0408 20:43:29.855034 32693 minihand_sample_transformer.cpp:80] 12.3438<---scale_w  scale_h-->12.3438
+I0408 20:43:29.857725 32693 minihand_sample_transformer.cpp:110] 6<--num_h  num_w-->7
+num_box is 27
+num_instance:1
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 11, 9))
+(3, 288, 512)
+temp:847.849
+area_scale:6.53057
+rw:5536 rh:3114
+dw:-4834 dh:-2090
+dice:0.593892
+xoffs:-2870.87 yoffs:-1241.23
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-2870.87 -1241.23 2665.13 1872.77
+iou:1
+dice:0.180372
+xoffs:-871.92 yoffs:-376.978
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-871.92 -376.978 4664.08 2737.02
+iou:1
+dice:0.163132
+xoffs:-788.578 yoffs:-340.945
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-788.578 -340.945 4747.42 2773.06
+iou:1
+dice:0.39169
+xoffs:-1893.43 yoffs:-818.633
+box.x1_x2_y1_y2:25 567 477 567
+new_x1_x2_y1_y2:-1893.43 -818.633 3642.57 2295.37
+iou:1
+raw_crop_roi:-1893.43 -818.633 3642.57 -818.633
+cov:1
+crop_roi:-1893.43 -818.633 3642.57 -818.633
+pxmin~pymax:0 0 702 1024
+I0408 20:43:30.570744 32693 minihand_sample_transformer.cpp:80] 10.8125<---scale_w  scale_h-->10.8125
+I0408 20:43:30.570888 32693 minihand_sample_transformer.cpp:110] 4<--num_h  num_w-->9
+num_instance:1
+num_box is 11
+('data.shape:', (1, 3, 288, 512))
+('label:', (1, 1, 24, 9))
+(3, 288, 512)
+temp:836.297
+area_scale:4.76843
+rw:3984 rh:2241
+dw:-2960 dh:-1558
+dice:0.359095
+xoffs:-1062.92 yoffs:-559.471
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1062.92 -559.471 2921.08 1681.53
+iou:1
+dice:0.552485
+xoffs:-1635.36 yoffs:-860.772
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1635.36 -860.772 2348.64 1380.23
+iou:1
+dice:0.57943
+xoffs:-1715.11 yoffs:-902.752
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1715.11 -902.752 2268.89 1338.25
+iou:1
+dice:0.452576
+xoffs:-1339.62 yoffs:-705.113
+box.x1_x2_y1_y2:0 683 819 683
+new_x1_x2_y1_y2:-1339.62 -705.113 2644.38 1535.89
+iou:1
+raw_crop_roi:-1339.62 -705.113 2644.38 -705.113
+cov:1
+crop_roi:-1339.62 -705.113 2644.38 -705.113
+pxmin~pymax:0 0 1024 683
+I0408 20:43:33.463848 32693 minihand_sample_transformer.cpp:80] 7.78125<---scale_w  scale_h-->7.78125
+I0408 20:43:33.464104 32693 minihand_sample_transformer.cpp:110] 5<--num_h  num_w-->5
+num_instance:1

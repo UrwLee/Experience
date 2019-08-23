@@ -1,0 +1,134 @@
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::Transform(caffe::AnnoData<Dtype>&, cv::Mat*, std::vector<caffe::BBoxData<Dtype> >*, caffe::BoundingBox<Dtype>*, bool*, caffe::BoundingBox<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:341:9: warning: variable ‘count_size_hair’ set but not used [-Wunused-but-set-variable]
+     int count_size_hair = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:399:9: warning: variable ‘count_size’ set but not used [-Wunused-but-set-variable]
+     int count_size = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::Transform(caffe::AnnoData<Dtype>&, cv::Mat*, std::vector<caffe::BBoxData<Dtype> >*, caffe::BoundingBox<Dtype>*, bool*, caffe::BoundingBox<Dtype>*, std::vector<caffe::BoundingBox<Dtype> >&) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1849:9: warning: variable ‘count_size’ set but not used [-Wunused-but-set-variable]
+     int count_size = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*, caffe::BoundingBox<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1048:15: warning: unused variable ‘TH_crop_scale’ [-Wunused-variable]
+         Dtype TH_crop_scale = it->THbbox.project_bbox(crop_bbox, &THproj_bbox);
+               ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*, caffe::BoundingBox<Dtype>*, std::vector<caffe::BoundingBox<Dtype> >&) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1962:15: warning: unused variable ‘TH_crop_scale’ [-Wunused-variable]
+         Dtype TH_crop_scale = it->THbbox.project_bbox(crop_bbox, &THproj_bbox);
+               ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionPreson(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1440:82: warning: integer overflow in expression [-Woverflow]
+     int rand_ind = -StoreSingle_.size() * static_cast<Dtype>(rand()) / (RAND_MAX + 1);
+                                                                                  ^
+src/caffe/mask/bbox_data_transformer.cpp:1507:82: warning: integer overflow in expression [-Woverflow]
+     int rand_ind = -StoreSingle_.size() * static_cast<Dtype>(rand()) / (RAND_MAX + 1);
+                                                                                  ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionHair(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1252:9: warning: unused variable ‘hair_up’ [-Wunused-variable]
+   Dtype hair_up = 0.3;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:1253:9: warning: unused variable ‘hair_lr’ [-Wunused-variable]
+   Dtype hair_lr = 0.15;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::Transform(caffe::AnnoData<Dtype>&, cv::Mat*, std::vector<caffe::BBoxData<Dtype> >*, caffe::BoundingBox<Dtype>*, bool*, caffe::BoundingBox<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:341:9: warning: variable ‘count_size_hair’ set but not used [-Wunused-but-set-variable]
+     int count_size_hair = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:399:9: warning: variable ‘count_size’ set but not used [-Wunused-but-set-variable]
+     int count_size = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::Transform(caffe::AnnoData<Dtype>&, cv::Mat*, std::vector<caffe::BBoxData<Dtype> >*, caffe::BoundingBox<Dtype>*, bool*, caffe::BoundingBox<Dtype>*, std::vector<caffe::BoundingBox<Dtype> >&) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1849:9: warning: variable ‘count_size’ set but not used [-Wunused-but-set-variable]
+     int count_size = 0;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*, caffe::BoundingBox<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1048:15: warning: unused variable ‘TH_crop_scale’ [-Wunused-variable]
+         Dtype TH_crop_scale = it->THbbox.project_bbox(crop_bbox, &THproj_bbox);
+               ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::TransCrop(caffe::AnnoData<Dtype>&, const caffe::BoundingBox<Dtype>&, cv::Mat*, caffe::BoundingBox<Dtype>*, std::vector<caffe::BoundingBox<Dtype> >&) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1962:15: warning: unused variable ‘TH_crop_scale’ [-Wunused-variable]
+         Dtype TH_crop_scale = it->THbbox.project_bbox(crop_bbox, &THproj_bbox);
+               ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionPreson(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1440:82: warning: integer overflow in expression [-Woverflow]
+     int rand_ind = -StoreSingle_.size() * static_cast<Dtype>(rand()) / (RAND_MAX + 1);
+                                                                                  ^
+src/caffe/mask/bbox_data_transformer.cpp:1507:82: warning: integer overflow in expression [-Woverflow]
+     int rand_ind = -StoreSingle_.size() * static_cast<Dtype>(rand()) / (RAND_MAX + 1);
+                                                                                  ^
+src/caffe/mask/bbox_data_transformer.cpp: In instantiation of ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionHair(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1995:1:   required from here
+src/caffe/mask/bbox_data_transformer.cpp:1252:9: warning: unused variable ‘hair_up’ [-Wunused-variable]
+   Dtype hair_up = 0.3;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp:1253:9: warning: unused variable ‘hair_lr’ [-Wunused-variable]
+   Dtype hair_lr = 0.15;
+         ^
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionPreson(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:1557:5: warning: ‘recive_y_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1555:5: warning: ‘recive_x_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.x2_ = (recive_x_position + recive_x) / image->cols;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1555:5: warning: ‘recive_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/caffe/mask/bbox_data_transformer.cpp:1557:5: warning: ‘recive_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1490:5: warning: ‘recive_y_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1488:5: warning: ‘recive_x_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.x2_ = (recive_x_position + recive_x) / image->cols;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1488:5: warning: ‘recive_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/caffe/mask/bbox_data_transformer.cpp:1490:5: warning: ‘recive_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::AddAdditionPreson(caffe::AnnoData<Dtype>&, cv::Mat*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:1557:5: warning: ‘recive_y_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1555:5: warning: ‘recive_x_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.x2_ = (recive_x_position + recive_x) / image->cols;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1555:5: warning: ‘recive_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/caffe/mask/bbox_data_transformer.cpp:1557:5: warning: ‘recive_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1490:5: warning: ‘recive_y_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1488:5: warning: ‘recive_x_position’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.x2_ = (recive_x_position + recive_x) / image->cols;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp:1488:5: warning: ‘recive_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/caffe/mask/bbox_data_transformer.cpp:1490:5: warning: ‘recive_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     BdBbox.y2_ = (recive_y_position + recive_y) / image->rows;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_transformer.cpp:858:7: warning: ‘w_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       crop_bbox->x1_ = 0.5 - w_max / 2.0;
+       ^
+src/caffe/mask/bbox_data_transformer.cpp:866:5: warning: ‘h_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     crop_bbox->y1_ = 0.5 - h_max / 2.0;
+     ^
+src/caffe/mask/bbox_data_transformer.cpp: In member function ‘void caffe::BBoxDataTransformer<Dtype>::getCropBBox(caffe::AnnoData<Dtype>&, caffe::BoundingBox<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_transformer.cpp:858:7: warning: ‘w_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       crop_bbox->x1_ = 0.5 - w_max / 2.0;
+       ^
+src/caffe/mask/bbox_data_transformer.cpp:866:5: warning: ‘h_max’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     crop_bbox->y1_ = 0.5 - h_max / 2.0;
+     ^

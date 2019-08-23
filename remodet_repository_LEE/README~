@@ -1,0 +1,12 @@
+Steps:
+1. create folder /home/yourusername/Datasets/AIC_Data;
+2. mv /home/yourusername/keypoint_train_images_20170902.zip and /home/yourusername/keypoint_validation_images_20170911.zip to /home/yourusername/Datasets/AIC_Data;
+   And then unzip them;
+3. mv /home/yourusername/Layout to /home/yourusername/Datasets/AIC_Data;
+4. create folder /home/yourusername/Datasets/AIC_Data/XML;
+5. mv /home/yourusername/Hand_Head_Face_Person_V0.zip to /home/yourusername/Datasets/AIC_Data/XML;
+6. create folder /home/yourusername/work;
+7. mv /home/yourusername/remodet_repository to /home/yourusername/work;
+8. compile and build the project /home/yourusername/work/remodet_repository;
+9. run /home/yourusername/work/remodet_repository/Projects/DAP_DJ/train.py
+

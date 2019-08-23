@@ -1,0 +1,162 @@
+I0807 12:30:52.523545  7534 caffe.cpp:495] Use CPU.
+I0807 12:30:52.767956  7534 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: /home/zhangming/work/repository/scripts/run/test.prototxt
+I0807 12:30:52.767989  7534 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0807 12:30:52.767995  7534 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0807 12:30:52.768287  7534 net.cpp:59] Initializing net from parameters: 
+name: "Pose_Det_16_9_release_0"
+state {
+  phase: TEST
+  level: 0
+  stage: ""
+}
+layer {
+  name: "input"
+  type: "Input"
+  top: "data"
+  input_param {
+    shape {
+      dim: 1
+      dim: 128
+      dim: 128
+      dim: 128
+    }
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "data"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+    pad: 0
+  }
+}
+I0807 12:30:52.768337  7534 layer_factory.hpp:77] Creating layer input
+I0807 12:30:52.768353  7534 net.cpp:118] Creating Layer input
+I0807 12:30:52.768362  7534 net.cpp:535] input -> data
+I0807 12:30:52.768399  7534 net.cpp:200] Setting up input
+I0807 12:30:52.768420  7534 net.cpp:211] Top shape: 1 128 128 128 (2097152)
+I0807 12:30:52.768427  7534 net.cpp:222] Memory required for data: 8388608
+I0807 12:30:52.768435  7534 layer_factory.hpp:77] Creating layer pool1
+I0807 12:30:52.768446  7534 net.cpp:118] Creating Layer pool1
+I0807 12:30:52.768453  7534 net.cpp:561] pool1 <- data
+I0807 12:30:52.768462  7534 net.cpp:535] pool1 -> pool1
+I0807 12:30:52.768486  7534 net.cpp:200] Setting up pool1
+I0807 12:30:52.768494  7534 net.cpp:211] Top shape: 1 128 64 64 (524288)
+I0807 12:30:52.768499  7534 net.cpp:222] Memory required for data: 10485760
+I0807 12:30:52.768503  7534 net.cpp:317] pool1 does not need backward computation.
+I0807 12:30:52.768508  7534 net.cpp:317] input does not need backward computation.
+I0807 12:30:52.768512  7534 net.cpp:375] This network produces output pool1
+I0807 12:30:52.768520  7534 net.cpp:395] Network initialization done.
+I0807 12:30:52.768534  7534 caffe.cpp:505] Performing Forward
+I0807 12:30:52.774613  7534 caffe.cpp:518] *** Benchmark begins ***
+I0807 12:30:52.774636  7534 caffe.cpp:519] Testing for 100 iterations.
+I0807 12:30:52.779057  7534 caffe.cpp:537] Iteration: 1 forward time: 4410 us.
+I0807 12:30:52.783706  7534 caffe.cpp:537] Iteration: 2 forward time: 4617 us.
+I0807 12:30:52.788183  7534 caffe.cpp:537] Iteration: 3 forward time: 4454 us.
+I0807 12:30:52.792636  7534 caffe.cpp:537] Iteration: 4 forward time: 4431 us.
+I0807 12:30:52.797188  7534 caffe.cpp:537] Iteration: 5 forward time: 4529 us.
+I0807 12:30:52.801640  7534 caffe.cpp:537] Iteration: 6 forward time: 4429 us.
+I0807 12:30:52.806138  7534 caffe.cpp:537] Iteration: 7 forward time: 4473 us.
+I0807 12:30:52.810566  7534 caffe.cpp:537] Iteration: 8 forward time: 4407 us.
+I0807 12:30:52.815009  7534 caffe.cpp:537] Iteration: 9 forward time: 4419 us.
+I0807 12:30:52.819422  7534 caffe.cpp:537] Iteration: 10 forward time: 4390 us.
+I0807 12:30:52.823827  7534 caffe.cpp:537] Iteration: 11 forward time: 4382 us.
+I0807 12:30:52.828378  7534 caffe.cpp:537] Iteration: 12 forward time: 4529 us.
+I0807 12:30:52.832849  7534 caffe.cpp:537] Iteration: 13 forward time: 4449 us.
+I0807 12:30:52.837337  7534 caffe.cpp:537] Iteration: 14 forward time: 4464 us.
+I0807 12:30:52.841743  7534 caffe.cpp:537] Iteration: 15 forward time: 4385 us.
+I0807 12:30:52.846173  7534 caffe.cpp:537] Iteration: 16 forward time: 4407 us.
+I0807 12:30:52.850579  7534 caffe.cpp:537] Iteration: 17 forward time: 4383 us.
+I0807 12:30:52.854971  7534 caffe.cpp:537] Iteration: 18 forward time: 4371 us.
+I0807 12:30:52.859452  7534 caffe.cpp:537] Iteration: 19 forward time: 4457 us.
+I0807 12:30:52.863905  7534 caffe.cpp:537] Iteration: 20 forward time: 4430 us.
+I0807 12:30:52.868288  7534 caffe.cpp:537] Iteration: 21 forward time: 4358 us.
+I0807 12:30:52.872687  7534 caffe.cpp:537] Iteration: 22 forward time: 4378 us.
+I0807 12:30:52.877089  7534 caffe.cpp:537] Iteration: 23 forward time: 4380 us.
+I0807 12:30:52.881448  7534 caffe.cpp:537] Iteration: 24 forward time: 4338 us.
+I0807 12:30:52.885859  7534 caffe.cpp:537] Iteration: 25 forward time: 4361 us.
+I0807 12:30:52.890313  7534 caffe.cpp:537] Iteration: 26 forward time: 4436 us.
+I0807 12:30:52.894747  7534 caffe.cpp:537] Iteration: 27 forward time: 4411 us.
+I0807 12:30:52.899121  7534 caffe.cpp:537] Iteration: 28 forward time: 4354 us.
+I0807 12:30:52.903504  7534 caffe.cpp:537] Iteration: 29 forward time: 4364 us.
+I0807 12:30:52.907861  7534 caffe.cpp:537] Iteration: 30 forward time: 4340 us.
+I0807 12:30:52.912235  7534 caffe.cpp:537] Iteration: 31 forward time: 4354 us.
+I0807 12:30:52.916610  7534 caffe.cpp:537] Iteration: 32 forward time: 4356 us.
+I0807 12:30:52.921044  7534 caffe.cpp:537] Iteration: 33 forward time: 4416 us.
+I0807 12:30:52.925472  7534 caffe.cpp:537] Iteration: 34 forward time: 4407 us.
+I0807 12:30:52.929862  7534 caffe.cpp:537] Iteration: 35 forward time: 4371 us.
+I0807 12:30:52.934226  7534 caffe.cpp:537] Iteration: 36 forward time: 4346 us.
+I0807 12:30:52.938603  7534 caffe.cpp:537] Iteration: 37 forward time: 4360 us.
+I0807 12:30:52.942988  7534 caffe.cpp:537] Iteration: 38 forward time: 4367 us.
+I0807 12:30:52.947350  7534 caffe.cpp:537] Iteration: 39 forward time: 4343 us.
+I0807 12:30:52.951830  7534 caffe.cpp:537] Iteration: 40 forward time: 4459 us.
+I0807 12:30:52.956264  7534 caffe.cpp:537] Iteration: 41 forward time: 4413 us.
+I0807 12:30:52.960635  7534 caffe.cpp:537] Iteration: 42 forward time: 4352 us.
+I0807 12:30:52.965019  7534 caffe.cpp:537] Iteration: 43 forward time: 4364 us.
+I0807 12:30:52.969390  7534 caffe.cpp:537] Iteration: 44 forward time: 4353 us.
+I0807 12:30:52.973722  7534 caffe.cpp:537] Iteration: 45 forward time: 4313 us.
+I0807 12:30:52.978090  7534 caffe.cpp:537] Iteration: 46 forward time: 4348 us.
+I0807 12:30:52.982573  7534 caffe.cpp:537] Iteration: 47 forward time: 4464 us.
+I0807 12:30:52.986990  7534 caffe.cpp:537] Iteration: 48 forward time: 4396 us.
+I0807 12:30:52.991379  7534 caffe.cpp:537] Iteration: 49 forward time: 4368 us.
+I0807 12:30:52.995760  7534 caffe.cpp:537] Iteration: 50 forward time: 4362 us.
+I0807 12:30:53.000118  7534 caffe.cpp:537] Iteration: 51 forward time: 4338 us.
+I0807 12:30:53.004493  7534 caffe.cpp:537] Iteration: 52 forward time: 4357 us.
+I0807 12:30:53.008872  7534 caffe.cpp:537] Iteration: 53 forward time: 4360 us.
+I0807 12:30:53.013368  7534 caffe.cpp:537] Iteration: 54 forward time: 4477 us.
+I0807 12:30:53.017844  7534 caffe.cpp:537] Iteration: 55 forward time: 4454 us.
+I0807 12:30:53.022214  7534 caffe.cpp:537] Iteration: 56 forward time: 4350 us.
+I0807 12:30:53.026556  7534 caffe.cpp:537] Iteration: 57 forward time: 4325 us.
+I0807 12:30:53.030894  7534 caffe.cpp:537] Iteration: 58 forward time: 4313 us.
+I0807 12:30:53.035255  7534 caffe.cpp:537] Iteration: 59 forward time: 4344 us.
+I0807 12:30:53.039590  7534 caffe.cpp:537] Iteration: 60 forward time: 4317 us.
+I0807 12:30:53.044049  7534 caffe.cpp:537] Iteration: 61 forward time: 4439 us.
+I0807 12:30:53.048584  7534 caffe.cpp:537] Iteration: 62 forward time: 4515 us.
+I0807 12:30:53.052956  7534 caffe.cpp:537] Iteration: 63 forward time: 4352 us.
+I0807 12:30:53.057341  7534 caffe.cpp:537] Iteration: 64 forward time: 4366 us.
+I0807 12:30:53.061697  7534 caffe.cpp:537] Iteration: 65 forward time: 4338 us.
+I0807 12:30:53.066092  7534 caffe.cpp:537] Iteration: 66 forward time: 4375 us.
+I0807 12:30:53.071125  7534 caffe.cpp:537] Iteration: 67 forward time: 5011 us.
+I0807 12:30:53.075826  7534 caffe.cpp:537] Iteration: 68 forward time: 4677 us.
+I0807 12:30:53.080370  7534 caffe.cpp:537] Iteration: 69 forward time: 4522 us.
+I0807 12:30:53.084820  7534 caffe.cpp:537] Iteration: 70 forward time: 4430 us.
+I0807 12:30:53.089188  7534 caffe.cpp:537] Iteration: 71 forward time: 4351 us.
+I0807 12:30:53.093554  7534 caffe.cpp:537] Iteration: 72 forward time: 4346 us.
+I0807 12:30:53.097918  7534 caffe.cpp:537] Iteration: 73 forward time: 4346 us.
+I0807 12:30:53.102316  7534 caffe.cpp:537] Iteration: 74 forward time: 4381 us.
+I0807 12:30:53.107007  7534 caffe.cpp:537] Iteration: 75 forward time: 4670 us.
+I0807 12:30:53.111408  7534 caffe.cpp:537] Iteration: 76 forward time: 4361 us.
+I0807 12:30:53.115829  7534 caffe.cpp:537] Iteration: 77 forward time: 4402 us.
+I0807 12:30:53.120168  7534 caffe.cpp:537] Iteration: 78 forward time: 4321 us.
+I0807 12:30:53.124505  7534 caffe.cpp:537] Iteration: 79 forward time: 4319 us.
+I0807 12:30:53.128864  7534 caffe.cpp:537] Iteration: 80 forward time: 4340 us.
+I0807 12:30:53.133244  7534 caffe.cpp:537] Iteration: 81 forward time: 4361 us.
+I0807 12:30:53.137985  7534 caffe.cpp:537] Iteration: 82 forward time: 4721 us.
+I0807 12:30:53.142415  7534 caffe.cpp:537] Iteration: 83 forward time: 4407 us.
+I0807 12:30:53.146760  7534 caffe.cpp:537] Iteration: 84 forward time: 4327 us.
+I0807 12:30:53.151135  7534 caffe.cpp:537] Iteration: 85 forward time: 4356 us.
+I0807 12:30:53.155514  7534 caffe.cpp:537] Iteration: 86 forward time: 4358 us.
+I0807 12:30:53.159848  7534 caffe.cpp:537] Iteration: 87 forward time: 4316 us.
+I0807 12:30:53.164186  7534 caffe.cpp:537] Iteration: 88 forward time: 4319 us.
+I0807 12:30:53.168972  7534 caffe.cpp:537] Iteration: 89 forward time: 4766 us.
+I0807 12:30:53.173377  7534 caffe.cpp:537] Iteration: 90 forward time: 4384 us.
+I0807 12:30:53.177722  7534 caffe.cpp:537] Iteration: 91 forward time: 4327 us.
+I0807 12:30:53.182085  7534 caffe.cpp:537] Iteration: 92 forward time: 4345 us.
+I0807 12:30:53.186427  7534 caffe.cpp:537] Iteration: 93 forward time: 4324 us.
+I0807 12:30:53.190769  7534 caffe.cpp:537] Iteration: 94 forward time: 4323 us.
+I0807 12:30:53.195140  7534 caffe.cpp:537] Iteration: 95 forward time: 4352 us.
+I0807 12:30:53.199681  7534 caffe.cpp:537] Iteration: 96 forward time: 4519 us.
+I0807 12:30:53.204079  7534 caffe.cpp:537] Iteration: 97 forward time: 4378 us.
+I0807 12:30:53.208470  7534 caffe.cpp:537] Iteration: 98 forward time: 4371 us.
+I0807 12:30:53.212829  7534 caffe.cpp:537] Iteration: 99 forward time: 4341 us.
+I0807 12:30:53.217206  7534 caffe.cpp:537] Iteration: 100 forward time: 4358 us.
+I0807 12:30:53.217221  7534 caffe.cpp:544]      input	forward: 1.29 us.
+I0807 12:30:53.217226  7534 caffe.cpp:544]      pool1	forward: 4397.85 us.
+I0807 12:30:53.217245  7534 caffe.cpp:550] Average Forward pass: 4426 us.
+I0807 12:30:53.217249  7534 caffe.cpp:552] Average Running Speed is: 225.94 FPS.
+I0807 12:30:53.217267  7534 caffe.cpp:554] Total Time: 442 ms.
+I0807 12:30:53.217272  7534 caffe.cpp:555] *** Benchmark ends ***

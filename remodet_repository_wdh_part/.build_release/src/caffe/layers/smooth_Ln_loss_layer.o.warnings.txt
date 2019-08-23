@@ -1,0 +1,8 @@
+src/caffe/layers/smooth_Ln_loss_layer.cpp: In instantiation of ‘void caffe::SmoothLnLossLayer<Dtype>::LayerSetUp(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = float]’:
+src/caffe/layers/smooth_Ln_loss_layer.cpp:142:1:   required from here
+src/caffe/layers/smooth_Ln_loss_layer.cpp:24:9: warning: variable ‘sigma’ set but not used [-Wunused-but-set-variable]
+   Dtype sigma;
+         ^
+src/caffe/layers/smooth_Ln_loss_layer.cpp: In instantiation of ‘void caffe::SmoothLnLossLayer<Dtype>::LayerSetUp(const std::vector<caffe::Blob<Dtype>*>&, const std::vector<caffe::Blob<Dtype>*>&) [with Dtype = double]’:
+src/caffe/layers/smooth_Ln_loss_layer.cpp:142:1:   required from here
+src/caffe/layers/smooth_Ln_loss_layer.cpp:24:9: warning: variable ‘sigma’ set but not used [-Wunused-but-set-variable]

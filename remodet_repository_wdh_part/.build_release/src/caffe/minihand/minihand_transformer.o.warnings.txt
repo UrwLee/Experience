@@ -1,0 +1,14 @@
+src/caffe/minihand/minihand_transformer.cpp: In member function ‘bool caffe::MinihandTransformer<Dtype>::getCropBBox(caffe::HandAnnoData<Dtype>&, caffe::BoundingBox<Dtype>*, caffe::Phase) [with Dtype = float]’:
+src/caffe/minihand/minihand_transformer.cpp:177:32: warning: ‘rh’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dh = anno.image_height - rh;
+                                ^
+src/caffe/minihand/minihand_transformer.cpp:176:31: warning: ‘rw’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dw = anno.image_width - rw;
+                               ^
+src/caffe/minihand/minihand_transformer.cpp: In member function ‘bool caffe::MinihandTransformer<Dtype>::getCropBBox(caffe::HandAnnoData<Dtype>&, caffe::BoundingBox<Dtype>*, caffe::Phase) [with Dtype = double]’:
+src/caffe/minihand/minihand_transformer.cpp:177:32: warning: ‘rh’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dh = anno.image_height - rh;
+                                ^
+src/caffe/minihand/minihand_transformer.cpp:176:31: warning: ‘rw’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   int dw = anno.image_width - rw;
+                               ^

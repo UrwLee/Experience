@@ -1,0 +1,45 @@
+#include <iostream>
+#include "opencv2/opencv.hpp"
+#include "opencv2/gpu/gpu.hpp"
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv.h>
+    using namespace cv;
+
+int main (int argc, char* argv[])
+{    // CvCapture *Frame=cvCaptureFromCAM(-1);
+     VideoCapture cap("People1.avi");
+     if(!cap.isOpened())  
+    return -1;  
+     cv::Mat Image_frame;
+       VideoWriter writer("VideoTest.avi", CV_FOURCC('M', 'J', 'P', 'G'), 25.0, cvSize(640, 480)); 
+    // Image_frame=cvQueryFrame(Frame);
+while (1)
+  {    cap>>Image_frame;
+     // imshow("Cam",Image_frame);
+
+
+     // cv::Mat Image = cv::imread("load.jpg" );
+      cv::gpu::GpuMat Image_Src,Image_Dst;
+      Image_Src.upload (Image_frame);
+
+     cv::gpu::cvtColor(Image_Src,Image_Dst,CV_BGR2GRAY);
+
+     vector<Rect> found;
+     cv::gpu::HOGDescriptor GUP_Hog;
+     GUP_Hog.setSVMDetector(cv::gpu::HOGDescriptor::getDefaultPeopleDetector());
+     GUP_Hog.detectMultiScale(Image_Dst, found);       //转为灰度值
+      for (size_t i = 0; i < found.size(); i++)  
+    {  
+        cv::rectangle(Image_frame , found[i], cv::Scalar(0,0,255), 2);  
+    }  
+    //  if( Image_frame.empty() )
+    //    break;
+      cv::imshow("Image",Image_frame);
+     // writer<< Image_frame ;
+      cv::waitKey(5); 
+
+}
+    return 0;
+}

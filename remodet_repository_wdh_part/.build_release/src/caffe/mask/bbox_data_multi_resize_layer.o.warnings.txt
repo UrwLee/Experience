@@ -1,0 +1,14 @@
+src/caffe/mask/bbox_data_multi_resize_layer.cpp: In member function ‘void caffe::BBoxDataMultiResizeLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = float]’:
+src/caffe/mask/bbox_data_multi_resize_layer.cpp:233:17: warning: ‘shift_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     int shift_x,shift_y;
+                 ^
+src/caffe/mask/bbox_data_multi_resize_layer.cpp:233:9: warning: ‘shift_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     int shift_x,shift_y;
+         ^
+src/caffe/mask/bbox_data_multi_resize_layer.cpp: In member function ‘void caffe::BBoxDataMultiResizeLayer<Dtype>::load_batch(caffe::Batch<Dtype>*) [with Dtype = double]’:
+src/caffe/mask/bbox_data_multi_resize_layer.cpp:233:17: warning: ‘shift_y’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     int shift_x,shift_y;
+                 ^
+src/caffe/mask/bbox_data_multi_resize_layer.cpp:233:9: warning: ‘shift_x’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     int shift_x,shift_y;
+         ^

@@ -1,0 +1,6 @@
+cd /home/zhangming/work/repository
+./build/tools/caffe speed \
+--model="/home/zhangming/work/repository/scripts/run/deploy.prototxt" \
+--iterations="100" \
+--layertest="yes" \
+--gpu 0 2>&1 | tee /home/zhangming/work/repository/scripts/run/conv1_3x3_cpu.txt
